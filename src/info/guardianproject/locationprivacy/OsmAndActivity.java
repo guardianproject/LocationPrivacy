@@ -7,6 +7,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import net.osmand.util.GeoPointParserUtil;
+import net.osmand.util.MapUtils;
+import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
+
 public class OsmAndActivity extends Activity {
     public static final String TAG = "OsmAndActivity";
 
@@ -31,16 +35,15 @@ public class OsmAndActivity extends Activity {
         Uri uri = intent.getData();
         Log.i(TAG, "uri: " + uri);
         if (uri != null) {
-            String lat = uri.getQueryParameter("lat");
-            String lon = uri.getQueryParameter("lon");
-            String zoom = uri.getQueryParameter("z");
+            GeoParsedPoint point = GeoPointParserUtil.parse(uri.toString());
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("https");
             builder.encodedAuthority("www.openstreetmap.org");
             builder.encodedPath("/");
-            builder.appendQueryParameter("mlat", lat);
-            builder.appendQueryParameter("mlon", lon);
-            builder.encodedFragment("map=" + zoom + "/" + lat + "/" + lon);
+            builder.appendQueryParameter("mlat", String.valueOf(point.getLatitude()));
+            builder.appendQueryParameter("mlon", String.valueOf(point.getLongitude()));
+            builder.encodedFragment("map=" + point.getZoom() + "/" + point.getLatitude() + "/"
+                    + point.getLongitude());
             intent.setData(builder.build());
         }
 
@@ -48,6 +51,37 @@ public class OsmAndActivity extends Activity {
         intent.setComponent(null); // prompt user for app to view new URI
         startActivity(intent);
         finish();
+    }
+
+    public static Uri buildShortOsmUri(Uri uri) {
+        return buildShortOsmUri(
+                uri.getQueryParameter("lat"),
+                uri.getQueryParameter("lon"),
+                uri.getQueryParameter("z"));
+    }
+
+    public static Uri buildShortOsmUri(String lat, String lon, String z) {
+        double latitude = 0;
+        double longitude = 0;
+        int zoom = 11;
+
+        try {
+            latitude = Double.parseDouble(lat);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        try {
+            longitude = Double.parseDouble(lon);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        try {
+            zoom = Integer.parseInt(z);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        String locString = MapUtils.createShortLinkString(latitude, longitude, zoom);
+        return Uri.parse("https://openstreetmap.org/go/" + locString + "?m");
     }
 
 }
