@@ -85,6 +85,20 @@
                 <data android:host="www.openstreetmaps.org" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ForceHttpsActivity"
+            android:label="@string/force_https" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:host="glympse.com" />
+                <data android:host="www.glympse.com" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
