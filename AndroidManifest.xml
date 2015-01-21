@@ -41,16 +41,6 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
-                <data android:host="goo.gl" />
-                <data android:host="www.google.com" />
-                <data android:pathPrefix="/maps" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:host="osmand.net" />
                 <data android:host="download.osmand.net" />
                 <data android:pathPrefix="/go" />
@@ -110,6 +100,32 @@
                 <data android:host="amap.com" />
                 <data android:host="j.map.baidu.com" />
                 <data android:host="l.map.qq.com" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GoogleUriActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="maps.google.com" />
+                <data android:sspPrefix="//maps.google." />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="goo.gl" />
+                <data android:host="www.google.com" />
+                <data android:sspPrefix="//www.google." />
+                <data android:pathPrefix="/maps" />
             </intent-filter>
         </activity>
     </application>
