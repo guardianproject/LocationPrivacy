@@ -51,11 +51,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="http" />
-                <data android:scheme="https" />
-                <data
-                    android:host="download.osmand.net"
-                    android:pathPrefix="/go" />
+                <data android:host="osmand.net" />
+                <data android:host="download.osmand.net" />
+                <data android:pathPrefix="/go" />
             </intent-filter>
         </activity>
         <activity android:name=".OpenStreetMapActivity" >
