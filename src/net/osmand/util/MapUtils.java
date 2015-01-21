@@ -308,6 +308,8 @@ public class MapUtils {
 	}
 	
 	public static GeoParsedPoint decodeShortLinkString(String s) {
+		// convert old shortlink format to current one
+		s = s.replaceAll("@", "~");
 		int i = 0;
 		long x = 0;
 		long y = 0;
