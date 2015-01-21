@@ -18,7 +18,6 @@ import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpUriRequest;
 
@@ -26,7 +25,7 @@ import org.apache.http.client.methods.HttpUriRequest;
  * Some location short URLs are a simple HTTP Redirect to a URL with location,
  * so we can just do an HTTP {@code HEAD} request to get the parseable URI, for
  * example: http://amap.com/0F0i02
- *
+ * 
  * @author hans
  */
 public class GetGeoFromRedirectUri extends Activity {
@@ -66,7 +65,8 @@ public class GetGeoFromRedirectUri extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            HttpClient httpClient = AndroidHttpClient.newInstance(getString(R.string.app_name));
+            AndroidHttpClient httpClient = AndroidHttpClient
+                    .newInstance(getString(R.string.app_name));
             HttpUriRequest request;
             HttpResponse response;
             try {
@@ -78,6 +78,11 @@ public class GetGeoFromRedirectUri extends Activity {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (httpClient != null) {
+                    httpClient.close();
+                    httpClient = null;
+                }
             }
             return null;
         }

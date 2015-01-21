@@ -12,15 +12,12 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -111,7 +108,8 @@ public class GoogleUriActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            HttpClient httpClient = AndroidHttpClient.newInstance(getString(R.string.app_name));
+            AndroidHttpClient httpClient = AndroidHttpClient
+                    .newInstance(getString(R.string.app_name));
             String urlString = params[0].replaceFirst("^http:", "https:");
             try {
                 HttpUriRequest request = new HttpHead(urlString);
@@ -122,7 +120,10 @@ public class GoogleUriActivity extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                httpClient.getConnectionManager().closeIdleConnections(0, TimeUnit.MILLISECONDS);
+                if (httpClient != null) {
+                    httpClient.close();
+                    httpClient = null;
+                }
             }
             return null;
         }
@@ -151,7 +152,8 @@ public class GoogleUriActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            HttpClient httpClient = AndroidHttpClient.newInstance(getString(R.string.app_name));
+            AndroidHttpClient httpClient = AndroidHttpClient
+                    .newInstance(getString(R.string.app_name));
             HttpUriRequest request;
             Uri uri = Uri.parse(params[0]);
             Uri.Builder builder = uri.buildUpon();
@@ -193,7 +195,10 @@ public class GoogleUriActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             } finally {
-                httpClient.getConnectionManager().closeIdleConnections(0, TimeUnit.MILLISECONDS);
+                if (httpClient != null) {
+                    httpClient.close();
+                    httpClient = null;
+                }
             }
             return null;
         }
