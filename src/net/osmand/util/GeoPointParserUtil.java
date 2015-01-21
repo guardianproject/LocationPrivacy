@@ -1113,6 +1113,7 @@ public class GeoPointParserUtil {
 					if (i > 0)
 						uriString += "&";
 					uriString += key + "=" + map.get(key);
+					i++;
 				}
 				return uriString;
 			}
