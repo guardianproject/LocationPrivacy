@@ -32,6 +32,9 @@
                 <data android:host="map.baidu.com" />
                 <data android:host="wb.amap.com" />
                 <data android:host="www.amap.com" />
+                <data android:host="here.com" />
+                <data android:host="www.here.com" />
+                <data android:host="share.here.com" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -86,6 +89,8 @@
                 <data android:scheme="http" />
                 <data android:host="glympse.com" />
                 <data android:host="www.glympse.com" />
+                <!-- TODO this should be moved to an Activity that can parse the Nokia HERE redirect -->
+                <data android:host="her.is" />
             </intent-filter>
         </activity>
         <activity android:name=".GetGeoFromRedirectUri" >

@@ -21,11 +21,13 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpUriRequest;
 
+// TODO this should also work with HTML Redirect pages, like https://her.is/v4qvgo
+
 /**
  * Some location short URLs are a simple HTTP Redirect to a URL with location,
  * so we can just do an HTTP {@code HEAD} request to get the parseable URI, for
  * example: http://amap.com/0F0i02
- * 
+ *
  * @author hans
  */
 public class GetGeoFromRedirectUri extends Activity {
