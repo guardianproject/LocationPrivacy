@@ -1,3 +1,4 @@
+
 # auto-generated files from Android builds
 bin/
 gen/
@@ -7,3 +8,6 @@ default.properties
 local.properties
 proguard.cfg
 proguard-project.txt
+
+# build products from tests
+*.class
