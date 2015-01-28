@@ -36,15 +36,27 @@ public class OsmAndActivity extends Activity {
         Log.i(TAG, "uri: " + uri);
         if (uri != null) {
             GeoParsedPoint point = GeoPointParserUtil.parse(uri.toString());
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme("https");
-            builder.encodedAuthority("www.openstreetmap.org");
-            builder.encodedPath("/");
-            builder.appendQueryParameter("mlat", String.valueOf(point.getLatitude()));
-            builder.appendQueryParameter("mlon", String.valueOf(point.getLongitude()));
-            builder.encodedFragment("map=" + point.getZoom() + "/" + point.getLatitude() + "/"
-                    + point.getLongitude());
-            intent.setData(builder.build());
+            if (point == null) {
+                // can't do anything else, try to force HTTPS
+                String host = uri.getHost();
+                if (host.startsWith("maps.yandex.")
+                        || host.equals("here.com")
+                        || host.endsWith(".here.com")) {
+                    Uri.Builder builder = new Uri.Builder();
+                    builder.scheme("https");
+                    intent.setData(builder.build());
+                }
+            } else {
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme("https");
+                builder.encodedAuthority("www.openstreetmap.org");
+                builder.encodedPath("/");
+                builder.appendQueryParameter("mlat", String.valueOf(point.getLatitude()));
+                builder.appendQueryParameter("mlon", String.valueOf(point.getLongitude()));
+                builder.encodedFragment("map=" + point.getZoom() + "/" + point.getLatitude() + "/"
+                        + point.getLongitude());
+                intent.setData(builder.build());
+            }
         }
 
         Log.i(TAG, "startActivity uri: " + intent.getData());
