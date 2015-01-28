@@ -695,6 +695,8 @@ public class GeoPointParserUtil {
 			if (schemeSpecific == null)
 				return null;
 
+            final Pattern commaSeparatedPairPattern = Pattern.compile("([+-]?\\d+(?:\\.\\d+)?),([+-]?\\d+(?:\\.\\d+)?)");
+
 			try {
 				if (host.equals("osm.org") || host.endsWith("openstreetmap.org")) {
 					Pattern p;
@@ -794,11 +796,15 @@ public class GeoPointParserUtil {
 						return new GeoParsedPoint(lat, lon, zoom);
 					}
 				} else if (host.startsWith("maps.yandex.")) {
-					Pattern p = Pattern.compile("(?:.*)ll=([+-]?\\d+(?:\\.\\d+)?),([+-]?\\d+(?:\\.\\d+)?)(?:.+)z=(\\d{1,2})(?:.*)");
-					Matcher matcher = p.matcher(uri.getQuery());
-					if (matcher.matches()) {
-						return new GeoParsedPoint(matcher.group(1), matcher.group(2), matcher.group(3));
-					}
+                    Map<String, String> queryMap = getQueryParameters(uri);
+                    String ll = queryMap.get("ll");
+                    if (ll != null) {
+                        Matcher matcher = commaSeparatedPairPattern.matcher(ll);
+                        if (matcher.matches()) {
+                            String z = String.valueOf(parseZoom(queryMap.get("z")));
+                            return new GeoParsedPoint(matcher.group(1), matcher.group(2), z);
+                        }
+                    }
 				} else if (host.endsWith(".amap.com")) {
 					/* amap (mis)uses the Fragment, which is not included in the Scheme Specific Part,
 					 * so instead we make a custom "everything but the Authority subString */
@@ -879,17 +885,36 @@ public class GeoPointParserUtil {
 					String label = null;
 					if (queryMap.containsKey("city")) {
 						label = queryMap.get("city");
-					} else if (queryMap.containsKey("key")) {
-						label = queryMap.get("key");
+                    } else if (queryMap.containsKey("key")) {
+                        label = queryMap.get("key");
+                    } else if (queryMap.containsKey("a")) {
+                        label = queryMap.get("a");
+                    } else if (queryMap.containsKey("n")) {
+                        label = queryMap.get("n");
 					}
+                    String m = queryMap.get("m");
+                    if (m != null) {
+                        Matcher matcher = commaSeparatedPairPattern.matcher(m);
+                        if (matcher.matches()) {
+                            x = matcher.group(2);
+                            y = matcher.group(1);
+                        }
+                    }
 					String c = queryMap.get("c");
 					if (c != null) {
-						x = c.replaceAll(".*\"lng\":\\s*([+\\-]?[0-9.]+).*", "$1");
-						if (x == null) // try 'lon' for the second time
-							x = c.replaceAll(".*\"lon\":\\s*([+\\-]?[0-9.]+).*", "$1");
-						y = c.replaceAll(".*\"lat\":\\s*([+\\-]?[0-9.]+).*", "$1");
-						z = c.replaceAll(".*\"l\":\\s*([+-]?[0-9.]+).*", "$1");
-						return new GeoParsedPoint(y, x, z, label);
+					    // there are two different patterns of data that can be in ?c=
+					    Matcher matcher = commaSeparatedPairPattern.matcher(c);
+					    if (matcher.matches()) {
+                            x = matcher.group(2);
+                            y = matcher.group(1);
+					    } else {
+					        x = c.replaceAll(".*\"lng\":\\s*([+\\-]?[0-9.]+).*", "$1");
+					        if (x == null) // try 'lon' for the second time
+					            x = c.replaceAll(".*\"lon\":\\s*([+\\-]?[0-9.]+).*", "$1");
+					        y = c.replaceAll(".*\"lat\":\\s*([+\\-]?[0-9.]+).*", "$1");
+					        z = c.replaceAll(".*\"l\":\\s*([+-]?[0-9.]+).*", "$1");
+					        return new GeoParsedPoint(y, x, z, label);
+					    }
 					}
 					for (String key : new String[]{"centerX", "x", "x1", "x2"}) {
 						if (queryMap.containsKey(key)) {
@@ -1079,7 +1104,7 @@ public class GeoPointParserUtil {
 
 		private String formatDouble(double d) {
 			if(d == (long) d)
-				return String.format("%d", (long)d);
+				return String.format(Locale.ENGLISH, "%d", (long)d);
 			else
 				return String.format("%s", d);
 		}
