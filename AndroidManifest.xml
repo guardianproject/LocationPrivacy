@@ -30,6 +30,13 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
+                <data android:host="osm.org" />
+                <data android:host="openstreetmap.de" />
+                <data android:host="openstreetmap.org" />
+                <data android:host="openstreetmaps.org" />
+                <data android:host="www.openstreetmap.de" />
+                <data android:host="www.openstreetmap.org" />
+                <data android:host="www.openstreetmaps.org" />
                 <data android:host="maps.apple.com" />
                 <data android:host="maps.google.com" />
                 <data android:host="maps.yandex.ru" />
@@ -53,34 +60,6 @@
                 <data android:host="osmand.net" />
                 <data android:host="download.osmand.net" />
                 <data android:pathPrefix="/go" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".OpenStreetMapActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <!-- force these to canonical: https://www.openstreetmap.org -->
-                <data android:scheme="http" />
-                <data android:host="osm.org" />
-                <data android:host="openstreetmap.org" />
-                <data android:host="openstreetmaps.org" />
-                <data android:host="www.openstreetmap.org" />
-                <data android:host="www.openstreetmaps.org" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <!-- these hostnames are not in the current HTTPS certificate, so redirect -->
-                <data android:scheme="https" />
-                <data android:host="osm.org" />
-                <data android:host="openstreetmaps.org" />
-                <data android:host="www.openstreetmaps.org" />
             </intent-filter>
         </activity>
         <activity
