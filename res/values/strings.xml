@@ -5,6 +5,8 @@
     <string name="usage">To use this app, click on a location link and choose LocationPrivacy, or share some text to LocationPrivacy.  First select LocationPrivacy, it will process the info, then prompt you again with a new list of apps that accept the more private location URL. Click below for an example:</string>
     <string name="give_feedback">We want your feedback! Click here to file an issue: https://dev.guardianproject.info/projects/panic/issues</string>
     <string name="force_https">Force HTTPS</string>
+    <string name="send_location_to">Send location to...</string>
+    <string name="view_in">view in %1$s</string>
     <string name="ignoring_unparsable_url">Ignoring unparsable URL, try a different app!</string>
 
 </resources>

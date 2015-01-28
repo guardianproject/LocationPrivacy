@@ -22,6 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActionSendActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+
+                <data android:mimeType="text/*" />
+            </intent-filter>
+        </activity>
         <activity android:name=".OsmAndActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
