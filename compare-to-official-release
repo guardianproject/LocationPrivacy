@@ -25,7 +25,7 @@ mkdir -p $dir1/zip
 cd $dir1/zip
 unzip "$sourcedir1/$apk1"
 cd ..
-apktool d "$sourcedir1/$apk1"
+apktool d --no-res --no-src "$sourcedir1/$apk1"
 mv "$apkname1" apktool
 # strip the full path to the zip for the comparison
 unzip -l "$sourcedir1/$apk1" | sed 's,^\(Archive:\s\s*\)/.*/,\1,' > $dir1/unzip-l.txt
@@ -37,7 +37,7 @@ mkdir -p $dir2/zip
 cd $dir2/zip
 unzip "$sourcedir2/$apk2"
 cd ..
-apktool d "$sourcedir2/$apk2"
+apktool d --no-res --no-src "$sourcedir2/$apk2"
 mv "$apkname2" apktool
 # strip the full path to the zip for the comparison
 unzip -l "$sourcedir2/$apk2" | sed 's,^\(Archive:\s\s*\)/.*/,\1,' > $dir2/unzip-l.txt
