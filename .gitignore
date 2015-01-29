@@ -9,5 +9,8 @@ local.properties
 proguard.cfg
 proguard-project.txt
 
+# reproducible build files
+BUILD.MF
+
 # build products from tests
 *.class
