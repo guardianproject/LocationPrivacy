@@ -19,3 +19,16 @@ often a part of panic apps.  Follow our progress here:
 
 * https://guardianproject.info/tag/panic
 * https://dev.guardianproject.info/projects/panic
+
+
+Licenses
+========
+
+The app itself it released under the GNU GPLv3+.  Here are some specific
+credits:
+
+* the app icon is public domain via CC0 license:
+  http://pixabay.com/en/map-compass-travel-navigation-27617/
+
+* the feature graphic is a self-modified version of public domain file:
+  https://commons.wikimedia.org/wiki/File:NASA-Apollo8-Dec24-Earthrise.jpg
