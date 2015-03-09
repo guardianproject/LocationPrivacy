@@ -24,15 +24,18 @@
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>
+        <note from="developer">Do not translate this.</note>
       </trans-unit>
       <trans-unit id="projecturl" translate="no">
         <source>★ https://dev.guardianproject.info/projects/panic</source>
+        <note from="developer">Do not translate this.</note>
       </trans-unit>
       <trans-unit id="helptranslate">
         <source>Don’t see your language? Join us and help translate the app:</source>
       </trans-unit>
       <trans-unit id="helptranslateurl" translate="no">
         <source>https://www.transifex.com/projects/p/locationprivacy</source>
+        <note from="developer">Do not translate this.</note>
       </trans-unit>
       <trans-unit id="learnmore">
         <source>***Learn More***</source>
@@ -51,6 +54,7 @@
       </trans-unit>
       <trans-unit id="gitrepo" translate="no">
         <source>https://github.com/guardianproject/LocationPrivacy</source>
+        <note from="developer">Do not translate this.</note>
       </trans-unit>
       <trans-unit id="messageus">
         <source>★ MESSAGE US: Are we missing your favorite feature? Found an annoying bug? Please tell us! We’d love to hear from you. Send us an email: support@guardianproject.info or find us in our chat room https://guardianproject.info/contact</source>
