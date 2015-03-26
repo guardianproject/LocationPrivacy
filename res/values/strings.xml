@@ -16,7 +16,7 @@
     <string name="about">About…</string>
 
     <!-- trusted app chooser titles -->
-    <string name="none">None</string>
+    <string name="blocked">Blocked</string>
     <string name="chooser">Chooser</string>
 
 </resources>

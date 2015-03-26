@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     static final String OSMAND_PLUS = "net.osmand.plus";
     static final String TRUSTED_APP_PREF = "TRUSTED_APP_PREF";
 
-    private TrustedAppEntry NONE;
+    private TrustedAppEntry BLOCKED;
     private TrustedAppEntry CHOOSER;
 
     private SharedPreferences prefs;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         pm = getPackageManager();
 
-        NONE = new TrustedAppEntry("NONE", R.string.none,
+        BLOCKED = new TrustedAppEntry("BLOCKED", R.string.blocked,
                 android.R.drawable.ic_menu_close_clear_cancel);
         CHOOSER = new TrustedAppEntry("CHOOSER", R.string.chooser,
                 android.R.drawable.ic_menu_more);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setTitle(R.string.choose_trusted_map_app);
 
                 list = new ArrayList<TrustedAppEntry>();
-                list.add(0, NONE);
+                list.add(0, BLOCKED);
                 list.add(1, CHOOSER);
 
                 for (ResolveInfo resolveInfo : resInfo) {
@@ -181,8 +181,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setSelectedApp(String packageName) {
-        if (TextUtils.equals(packageName, NONE.packageName)) {
-            setSelectedApp(NONE);
+        if (TextUtils.equals(packageName, BLOCKED.packageName)) {
+            setSelectedApp(BLOCKED);
         } else if (TextUtils.equals(packageName, CHOOSER.packageName)) {
             setSelectedApp(CHOOSER);
         } else {
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * Create manual entry for non-apps, i.e. "Chooser" or "None"
+         * Create manual entry for non-apps, i.e. "Chooser" or "Blocked"
          *
          * @param simpleName
          * @param icon
