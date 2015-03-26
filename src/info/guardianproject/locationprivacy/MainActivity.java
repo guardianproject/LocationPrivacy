@@ -2,7 +2,6 @@
 package info.guardianproject.locationprivacy;
 
 import android.annotation.SuppressLint;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,9 +11,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
@@ -51,13 +50,19 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout installOsmAndLayout;
     private Button chooseTrustedAppButton;
     private int iconSize;
+    private int dp20;
+    private int dp10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iconSize = getIconSize();
+        Resources r = getResources();
+        float density = r.getDisplayMetrics().density;
+        dp10 = (int) (10 * density);
+        dp20 = (int) (20 * density);
+        iconSize = r.getDrawable(R.drawable.ic_launcher).getIntrinsicHeight();
 
         pm = getPackageManager();
 
@@ -108,12 +113,8 @@ public class MainActivity extends AppCompatActivity {
                     public View getView(int position, View convertView, ViewGroup parent) {
                         View view = super.getView(position, convertView, parent);
                         TextView textView = (TextView) view.findViewById(android.R.id.text1);
-                        textView.setCompoundDrawablesWithIntrinsicBounds(list.get(position).icon,
-                                null, null, null);
-
-                        // Add margin between image and text (support various
-                        // screen densities)
-                        int dp10 = (int) (10 * getContext().getResources().getDisplayMetrics().density + 0.5f);
+                        textView.setCompoundDrawables(list.get(position).icon, null, null, null);
+                        // margin between image and text
                         textView.setCompoundDrawablePadding(dp10);
 
                         return view;
@@ -199,12 +200,9 @@ public class MainActivity extends AppCompatActivity {
         selectedPackageName = entry.packageName;
         prefs.edit().putString(TRUSTED_APP_PREF, selectedPackageName).apply();
         chooseTrustedAppButton.setText(entry.simpleName);
-        Drawable icon = entry.icon;
-        icon.setBounds(0, 0, iconSize, iconSize);
-        chooseTrustedAppButton.setCompoundDrawables(icon, null, null, null);
-        int pad = iconSize / 4;
-        chooseTrustedAppButton.setPadding(pad, pad, pad, pad);
-        chooseTrustedAppButton.setCompoundDrawablePadding(iconSize / 8);
+        chooseTrustedAppButton.setCompoundDrawables(entry.icon, null, null, null);
+        chooseTrustedAppButton.setPadding(dp20, dp20, dp20, dp20);
+        chooseTrustedAppButton.setCompoundDrawablePadding(dp10);
     }
 
     private boolean isInstalled(String packageName) {
@@ -213,16 +211,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
-        }
-    }
-
-    @SuppressLint("NewApi")
-    private int getIconSize() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-            return am.getLauncherLargeIconSize();
-        } else { // fake it!
-            return 36;
         }
     }
 
@@ -260,7 +248,9 @@ public class MainActivity extends AppCompatActivity {
         public TrustedAppEntry(ActivityInfo activityInfo) {
             this.packageName = activityInfo.packageName;
             this.simpleName = String.valueOf(activityInfo.loadLabel(pm));
-            this.icon = activityInfo.loadIcon(pm);
+            Drawable icon = activityInfo.loadIcon(pm);
+            icon.setBounds(0, 0, iconSize, iconSize);
+            this.icon = icon;
         }
 
         /**
@@ -272,7 +262,9 @@ public class MainActivity extends AppCompatActivity {
         public TrustedAppEntry(String fakePackageName, int simpleNameId, int iconId) {
             this.packageName = fakePackageName;
             this.simpleName = MainActivity.this.getString(simpleNameId);
-            this.icon = MainActivity.this.getResources().getDrawable(iconId);
+            Drawable icon = MainActivity.this.getResources().getDrawable(iconId);
+            icon.setBounds(0, 0, iconSize, iconSize);
+            this.icon = icon;
         }
 
         @Override
