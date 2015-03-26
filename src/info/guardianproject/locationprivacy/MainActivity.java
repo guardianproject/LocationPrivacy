@@ -2,11 +2,14 @@
 package info.guardianproject.locationprivacy;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -14,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,23 +39,35 @@ public class MainActivity extends AppCompatActivity {
     static final String OSMAND_FREE = "net.osmand";
     static final String OSMAND_PLUS = "net.osmand.plus";
 
+    private TrustedAppEntry NONE;
+    private TrustedAppEntry CHOOSER;
+
+    private String selectedPackageName;
     private PackageManager pm;
     private LinearLayout installOsmAndLayout;
+    private Button chooseTrustedAppButton;
+    private int iconSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        iconSize = getIconSize();
+
         pm = getPackageManager();
+
+        NONE = new TrustedAppEntry("NONE", R.string.none,
+                android.R.drawable.ic_menu_close_clear_cancel);
+        CHOOSER = new TrustedAppEntry("CHOOSER", R.string.chooser,
+                android.R.drawable.ic_menu_more);
 
         installOsmAndLayout = (LinearLayout) findViewById(R.id.installOsmAndLayout);
 
-        final Button chooseTrustedAppButton = (Button) findViewById(R.id.chooseTrustedAppButton);
+        chooseTrustedAppButton = (Button) findViewById(R.id.chooseTrustedAppButton);
         chooseTrustedAppButton.setOnClickListener(new OnClickListener() {
 
             private ArrayList<TrustedAppEntry> list;
-            private String selectedPackageName = "CHOOSER";
 
             private int getIndexOfProviderList(String packageName) {
                 for (TrustedAppEntry app : list) {
@@ -74,10 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 builder.setTitle(R.string.choose_trusted_map_app);
 
                 list = new ArrayList<TrustedAppEntry>();
-                list.add(0, new TrustedAppEntry("NONE", R.string.none,
-                        android.R.drawable.ic_menu_close_clear_cancel));
-                list.add(1, new TrustedAppEntry("CHOOSER", R.string.chooser,
-                        android.R.drawable.ic_menu_more));
+                list.add(0, NONE);
+                list.add(1, CHOOSER);
 
                 for (ResolveInfo resolveInfo : resInfo) {
                     if (resolveInfo.activityInfo == null)
@@ -105,18 +119,10 @@ public class MainActivity extends AppCompatActivity {
                 builder.setSingleChoiceItems(adapter, getIndexOfProviderList(selectedPackageName),
                         new DialogInterface.OnClickListener() {
 
-                            @SuppressLint("NewApi")
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 TrustedAppEntry entry = list.get(which);
-                                selectedPackageName = entry.packageName;
-                                chooseTrustedAppButton.setText(entry.simpleName);
-                                if (Build.VERSION.SDK_INT >= 17)
-                                    chooseTrustedAppButton.setCompoundDrawablesRelative(entry.icon,
-                                            null, null, null);
-                                else
-                                    chooseTrustedAppButton.setCompoundDrawables(entry.icon,
-                                            null, null, null);
+                                setSelectedApp(entry);
                                 dialog.dismiss();
                             }
                         });
@@ -157,12 +163,49 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setSelectedApp(String packageName) {
+        if (TextUtils.equals(packageName, NONE.packageName)) {
+            setSelectedApp(NONE);
+        } else if (TextUtils.equals(packageName, CHOOSER.packageName)) {
+            setSelectedApp(CHOOSER);
+        } else {
+            try {
+                PackageInfo pi = pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+                setSelectedApp(new TrustedAppEntry(pi.activities[0]));
+            } catch (NameNotFoundException e) {
+                setSelectedApp(CHOOSER);
+            }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private void setSelectedApp(final TrustedAppEntry entry) {
+        selectedPackageName = entry.packageName;
+        chooseTrustedAppButton.setText(entry.simpleName);
+        Drawable icon = entry.icon;
+        icon.setBounds(0, 0, iconSize, iconSize);
+        chooseTrustedAppButton.setCompoundDrawables(icon, null, null, null);
+        int pad = iconSize / 4;
+        chooseTrustedAppButton.setPadding(pad, pad, pad, pad);
+        chooseTrustedAppButton.setCompoundDrawablePadding(iconSize / 8);
+    }
+
     private boolean isInstalled(String packageName) {
         try {
             pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private int getIconSize() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+            return am.getLauncherLargeIconSize();
+        } else { // fake it!
+            return 36;
         }
     }
 
