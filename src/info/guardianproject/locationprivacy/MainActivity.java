@@ -6,6 +6,7 @@ import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -15,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -38,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
     static final String OSMAND_FREE = "net.osmand";
     static final String OSMAND_PLUS = "net.osmand.plus";
+    static final String TRUSTED_APP_PREF = "TRUSTED_APP_PREF";
 
     private TrustedAppEntry NONE;
     private TrustedAppEntry CHOOSER;
 
+    private SharedPreferences prefs;
     private String selectedPackageName;
     private PackageManager pm;
     private LinearLayout installOsmAndLayout;
@@ -138,6 +142,18 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         boolean osmandFreeInstalled = isInstalled(OSMAND_FREE);
         boolean osmandPlusInstalled = isInstalled(OSMAND_PLUS);
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.contains(TRUSTED_APP_PREF)) {
+            setSelectedApp(prefs.getString(TRUSTED_APP_PREF, CHOOSER.packageName));
+        } else if (osmandPlusInstalled) {
+            setSelectedApp(OSMAND_PLUS);
+        } else if (osmandFreeInstalled) {
+            setSelectedApp(OSMAND_FREE);
+        } else {
+            setSelectedApp(CHOOSER);
+        }
+
         if (osmandFreeInstalled || osmandPlusInstalled) {
             installOsmAndLayout.setVisibility(View.GONE);
         } else {
@@ -181,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("NewApi")
     private void setSelectedApp(final TrustedAppEntry entry) {
         selectedPackageName = entry.packageName;
+        prefs.edit().putString(TRUSTED_APP_PREF, selectedPackageName).apply();
         chooseTrustedAppButton.setText(entry.simpleName);
         Drawable icon = entry.icon;
         icon.setBounds(0, 0, iconSize, iconSize);
