@@ -21,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -30,12 +31,21 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
+    static final String OSMAND_FREE = "net.osmand";
+    static final String OSMAND_PLUS = "net.osmand.plus";
+
     private PackageManager pm;
+    private LinearLayout installOsmAndLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pm = getPackageManager();
+
+        installOsmAndLayout = (LinearLayout) findViewById(R.id.installOsmAndLayout);
+
         final Button chooseTrustedAppButton = (Button) findViewById(R.id.chooseTrustedAppButton);
         chooseTrustedAppButton.setOnClickListener(new OnClickListener() {
 
@@ -53,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if (pm == null)
-                    pm = getPackageManager();
                 Intent viewIntent = new Intent(Intent.ACTION_VIEW);
                 viewIntent.setData(Uri.parse("geo:34.99393,-106.61568?z=11"));
                 List<ResolveInfo> resInfo = pm.queryIntentActivities(viewIntent, 0);
@@ -116,6 +124,45 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean osmandFreeInstalled = isInstalled(OSMAND_FREE);
+        boolean osmandPlusInstalled = isInstalled(OSMAND_PLUS);
+        if (osmandFreeInstalled || osmandPlusInstalled) {
+            installOsmAndLayout.setVisibility(View.GONE);
+        } else {
+            installOsmAndLayout.setVisibility(View.VISIBLE);
+            Button installOsmAnd = (Button) findViewById(R.id.installOsmAnd);
+            installOsmAnd.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    String uriString;
+                    // FDroid has OSMAND_PLUS but in Play, it costs money
+                    if (isInstalled("org.fdroid.fdroid"))
+                        uriString = "market://details?id=" + OSMAND_PLUS;
+                    else if (isInstalled("com.android.vending")) // Google Play
+                        uriString = "market://details?id=" + OSMAND_FREE;
+                    else
+                        uriString = "market://search?q=" + OSMAND_FREE + "&c=apps";
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uriString));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            });
+        }
+    }
+
+    private boolean isInstalled(String packageName) {
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
