@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 for (ResolveInfo resolveInfo : resInfo) {
                     if (resolveInfo.activityInfo == null)
                         continue;
-                    list.add(new TrustedAppEntry(resolveInfo));
+                    list.add(new TrustedAppEntry(resolveInfo.activityInfo));
                 }
                 ListAdapter adapter = new ArrayAdapter<TrustedAppEntry>(MainActivity.this,
                         android.R.layout.select_dialog_singlechoice, android.R.id.text1, list) {
@@ -196,10 +197,10 @@ public class MainActivity extends AppCompatActivity {
          *
          * @param resolveInfo
          */
-        public TrustedAppEntry(ResolveInfo resolveInfo) {
-            this.packageName = resolveInfo.activityInfo.packageName;
-            this.simpleName = String.valueOf(resolveInfo.activityInfo.loadLabel(pm));
-            this.icon = resolveInfo.activityInfo.loadIcon(pm);
+        public TrustedAppEntry(ActivityInfo activityInfo) {
+            this.packageName = activityInfo.packageName;
+            this.simpleName = String.valueOf(activityInfo.loadLabel(pm));
+            this.icon = activityInfo.loadIcon(pm);
         }
 
         /**
