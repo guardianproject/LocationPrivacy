@@ -21,6 +21,12 @@ eval `grep '^target=' project.properties`
 echo "Setting up build for $projectname"
 echo ""
 
+for f in `find external/ -name android-support-v4.jar`; do
+    projectdir=`dirname $f`
+    echo "Updating android-support-v4.jar in $projectdir:"
+    cp libs/appcompat/libs/android-support-v4.jar $f
+done
+
 for f in `find * -name project.properties`; do
     projectdir=`dirname $f`
     echo "Updating ant setup in $projectdir:"
