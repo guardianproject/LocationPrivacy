@@ -3,6 +3,7 @@ package info.guardianproject.locationprivacy;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -169,7 +170,12 @@ public class MainActivity extends AppCompatActivity {
                         uriString = "market://search?q=" + OSMAND_FREE + "&c=apps";
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uriString));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    try {
+                        startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("http://osmand.net")));
+                    }
                 }
             });
         }
