@@ -543,6 +543,10 @@
                 <data android:pathPrefix="/maps" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".PackageMonitor"
+            android:exported="false" />
     </application>
 
 </manifest>

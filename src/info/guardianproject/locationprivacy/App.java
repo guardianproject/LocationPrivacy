@@ -16,9 +16,13 @@ public class App extends Application {
 
     private static String selectedPackageName;
 
+    private PackageMonitor packageMonitor;
+
     @Override
     public void onCreate() {
         Prefs.setup(this);
+        packageMonitor = new PackageMonitor();
+        packageMonitor.register(this, true);
         super.onCreate();
     }
 
