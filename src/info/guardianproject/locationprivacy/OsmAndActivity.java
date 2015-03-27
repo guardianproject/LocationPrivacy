@@ -49,10 +49,7 @@ public class OsmAndActivity extends Activity {
                 intent.setData(Uri.parse(point.toString()));
             }
         }
-
-        Log.i(TAG, "startActivity uri: " + intent.getData());
-        intent.setComponent(null); // prompt user for app to view new URI
-        startActivity(intent);
+        App.startActivityWithTrustedApp(this, intent);
         finish();
     }
 }

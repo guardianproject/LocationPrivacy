@@ -36,13 +36,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
-    static final String OSMAND_FREE = "net.osmand";
-    static final String OSMAND_PLUS = "net.osmand.plus";
-
     private TrustedAppEntry BLOCKED;
     private TrustedAppEntry CHOOSER;
 
-    private String selectedPackageName;
     private PackageManager pm;
     private LinearLayout installOsmAndLayout;
     private Button chooseTrustedAppButton;
@@ -75,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
             private ArrayList<TrustedAppEntry> list;
 
-            private int getIndexOfProviderList(String packageName) {
+            private int getIndexOfProviderList() {
                 for (TrustedAppEntry app : list) {
-                    if (app.packageName.equals(packageName)) {
+                    if (app.packageName.equals(App.getSelectedPackageName())) {
                         return list.indexOf(app);
                     }
                 }
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
 
-                builder.setSingleChoiceItems(adapter, getIndexOfProviderList(selectedPackageName),
+                builder.setSingleChoiceItems(adapter, getIndexOfProviderList(),
                         new DialogInterface.OnClickListener() {
 
                             @Override
@@ -138,15 +134,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        boolean osmandFreeInstalled = isInstalled(OSMAND_FREE);
-        boolean osmandPlusInstalled = isInstalled(OSMAND_PLUS);
+        boolean osmandFreeInstalled = isInstalled(App.OSMAND_FREE);
+        boolean osmandPlusInstalled = isInstalled(App.OSMAND_PLUS);
 
         if (Prefs.contains(Prefs.TRUSTED_APP_PREF)) {
             setSelectedApp(Prefs.getTrustedApp());
         } else if (osmandPlusInstalled) {
-            setSelectedApp(OSMAND_PLUS);
+            setSelectedApp(App.OSMAND_PLUS);
         } else if (osmandFreeInstalled) {
-            setSelectedApp(OSMAND_FREE);
+            setSelectedApp(App.OSMAND_FREE);
         } else {
             setSelectedApp(CHOOSER);
         }
@@ -163,11 +159,11 @@ public class MainActivity extends AppCompatActivity {
                     String uriString;
                     // FDroid has OSMAND_PLUS but in Play, it costs money
                     if (isInstalled("org.fdroid.fdroid"))
-                        uriString = "market://details?id=" + OSMAND_PLUS;
+                        uriString = "market://details?id=" + App.OSMAND_PLUS;
                     else if (isInstalled("com.android.vending")) // Google Play
-                        uriString = "market://details?id=" + OSMAND_FREE;
+                        uriString = "market://details?id=" + App.OSMAND_FREE;
                     else
-                        uriString = "market://search?q=" + OSMAND_FREE + "&c=apps";
+                        uriString = "market://search?q=" + App.OSMAND_FREE + "&c=apps";
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uriString));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     try {
@@ -198,8 +194,8 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void setSelectedApp(final TrustedAppEntry entry) {
-        selectedPackageName = entry.packageName;
-        Prefs.setTrustedApp(selectedPackageName);
+        Prefs.setTrustedApp(entry.packageName);
+        App.setSelectedPackageName(entry.packageName);
         chooseTrustedAppButton.setText(entry.simpleName);
         chooseTrustedAppButton.setCompoundDrawables(entry.icon, null, null, null);
         chooseTrustedAppButton.setPadding(dp20, dp20, dp20, dp20);

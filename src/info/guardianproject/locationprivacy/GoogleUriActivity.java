@@ -11,7 +11,6 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import java.io.IOException;
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
@@ -25,6 +24,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+
+import java.io.IOException;
 
 /**
  * goo.gl short URIs (e.g. {@link http://goo.gl/maps/Cji0V} are a simple HTTP
@@ -98,8 +99,7 @@ public class GoogleUriActivity extends Activity {
         } else {
             // reuse the Intent in case it contains anything else useful
             intent.setData(Uri.parse(point.toString()));
-            intent.setComponent(null); // prompt for app to view new URI
-            startActivity(intent);
+            App.startActivityWithTrustedApp(this, intent);
             return true;
         }
     }
@@ -136,8 +136,7 @@ public class GoogleUriActivity extends Activity {
                 Toast.makeText(GoogleUriActivity.this,
                         R.string.ignoring_unparsable_url,
                         Toast.LENGTH_SHORT).show();
-                intent.setComponent(null); // prompt for app to view new URI
-                startActivity(intent);
+                App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
             } else {
                 if (!viewUrlString(uriString)) {
                     new GetLatLonAsyncTask().execute(new String[] {
@@ -206,8 +205,7 @@ public class GoogleUriActivity extends Activity {
         @Override
         protected void onPostExecute(String uriString) {
             if (!viewUrlString(uriString)) {
-                intent.setComponent(null); // prompt for app to view new URI
-                startActivity(intent);
+                App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
             }
         }
     }

@@ -11,8 +11,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.io.IOException;
-
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
@@ -20,6 +18,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpUriRequest;
+
+import java.io.IOException;
 
 // TODO this should also work with HTML Redirect pages, like https://her.is/v4qvgo
 
@@ -105,9 +105,7 @@ public class GetGeoFromRedirectUri extends Activity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     intent.setData(Uri.parse(point.toString()));
-                    Log.i(TAG, "startActivity uri: " + intent.getData());
-                    intent.setComponent(null); // prompt for app to view new URI
-                    startActivity(intent);
+                    App.startActivityWithTrustedApp(GetGeoFromRedirectUri.this, intent);
                 }
             }
             finish();

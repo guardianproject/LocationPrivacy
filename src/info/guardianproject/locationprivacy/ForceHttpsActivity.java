@@ -43,10 +43,7 @@ public class ForceHttpsActivity extends Activity {
             builder.scheme("https");
             intent.setData(builder.build());
         }
-
-        Log.i(TAG, "startActivity uri: " + intent.getData());
-        intent.setComponent(null); // prompt user for app to view new URI
-        startActivity(intent);
+        App.startActivityWithBlockedOrChooser(this, intent);
         finish();
     }
 }
