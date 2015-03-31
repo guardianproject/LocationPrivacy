@@ -41,15 +41,16 @@ public class OsmAndActivity extends Activity {
                 if (host.startsWith("maps.yandex.")
                         || host.equals("here.com")
                         || host.endsWith(".here.com")) {
-                    Uri.Builder builder = new Uri.Builder();
+                    Uri.Builder builder = uri.buildUpon();
                     builder.scheme("https");
                     intent.setData(builder.build());
+                    App.startActivityWithBlockedOrChooser(this, intent);
                 }
             } else {
                 intent.setData(Uri.parse(point.getGeoUriString()));
+                App.startActivityWithTrustedApp(this, intent);
             }
         }
-        App.startActivityWithTrustedApp(this, intent);
         finish();
     }
 }

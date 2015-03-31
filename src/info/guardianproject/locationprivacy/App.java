@@ -55,7 +55,7 @@ public class App extends Application {
             Toast.makeText(activity, R.string.blocked_url, Toast.LENGTH_SHORT).show();
         } else {
             intent.setComponent(null); // prompt user for Activity to view URI
-            Log.i("startActivityWithBlockedOrChooser", intent.getData() + " " + intent.getPackage());
+            Toast.makeText(activity, R.string.ignoring_unparsable_url, Toast.LENGTH_LONG).show();
             activity.startActivity(intent);
         }
     }

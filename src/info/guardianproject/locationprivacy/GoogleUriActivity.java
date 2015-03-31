@@ -92,12 +92,10 @@ public class GoogleUriActivity extends Activity {
 
     private boolean viewUrlString(String uriString) {
         GeoParsedPoint point = null;
-        if (!TextUtils.isEmpty(uriString))
+        if (!TextUtils.isEmpty(uriString)) {
             point = GeoPointParserUtil.parse(uriString);
+        }
         if (point == null) {
-            Toast.makeText(GoogleUriActivity.this,
-                    R.string.ignoring_unparsable_url,
-                    Toast.LENGTH_SHORT).show();
             return false;
         } else {
             // reuse the Intent in case it contains anything else useful
@@ -138,17 +136,12 @@ public class GoogleUriActivity extends Activity {
         protected void onPostExecute(String uriString) {
             super.onPostExecute(uriString);
 
-            if (TextUtils.isEmpty(uriString)) {
-                Toast.makeText(GoogleUriActivity.this,
-                        R.string.ignoring_unparsable_url,
-                        Toast.LENGTH_SHORT).show();
-                App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
+            if (TextUtils.isEmpty(uriString) || !viewUrlString(uriString)) {
+                // try again to parse it, this time by downloading HTML
+                new GetLatLonAsyncTask(GoogleUriActivity.this, uriString).execute();
             } else {
-                if (!viewUrlString(uriString)) {
-                    new GetLatLonAsyncTask(GoogleUriActivity.this, uriString).execute();
-                }
+                finish();
             }
-            finish();
         }
     }
 
@@ -219,7 +212,8 @@ public class GoogleUriActivity extends Activity {
         @Override
         protected void onPostExecute(String uriString) {
             if (!viewUrlString(uriString)) {
-                App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
+                // we're out of tricks, give up
+                App.startActivityWithBlockedOrChooser(GoogleUriActivity.this, intent);
             }
             finish();
         }
