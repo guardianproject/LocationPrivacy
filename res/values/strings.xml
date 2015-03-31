@@ -11,6 +11,8 @@
     <string name="choose_trusted_map_app">Choose trusted map app</string>
     <string name="recommended_app">OsmAnd is recommended as a private map app that provides complete, offline operation. That means it won\'t leak your private info to anything off of your device. It is also Free Software.</string>
     <string name="install_osmand">Install OsmAnd</string>
+    <string name="why_orbot">Orbot provides Tor, which anonymizes your network traffic.  LocationPrivacy will leak a lot less information when it works together with Orbot.  It is Free Software.</string>
+    <string name="install_orbot">Install Orbot</string>
     <string name="blocked_url">LocationPrivacy blocked this URL!</string>
 
     <!-- menu titles -->

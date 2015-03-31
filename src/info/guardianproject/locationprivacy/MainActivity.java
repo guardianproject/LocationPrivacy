@@ -18,7 +18,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +28,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import info.guardianproject.onionkit.ui.OrbotHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private PackageManager pm;
     private LinearLayout installOsmAndLayout;
+    private LinearLayout installOrbotLayout;
     private Button chooseTrustedAppButton;
     private int iconSize;
     private int dp20;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 android.R.drawable.ic_menu_more);
 
         installOsmAndLayout = (LinearLayout) findViewById(R.id.installOsmAndLayout);
+        installOrbotLayout = (LinearLayout) findViewById(R.id.installOrbotLayout);
 
         chooseTrustedAppButton = (Button) findViewById(R.id.chooseTrustedAppButton);
         chooseTrustedAppButton.setOnClickListener(new OnClickListener() {
@@ -171,6 +174,31 @@ public class MainActivity extends AppCompatActivity {
                     } catch (ActivityNotFoundException e) {
                         startActivity(new Intent(Intent.ACTION_VIEW,
                                 Uri.parse("http://osmand.net")));
+                    }
+                }
+            });
+        }
+
+        if (App.orbotHelper.isOrbotInstalled()) {
+            installOrbotLayout.setVisibility(View.GONE);
+            if (!App.orbotHelper.isOrbotRunning()) {
+                App.orbotHelper.requestOrbotStart(this);
+            }
+        } else {
+            installOrbotLayout.setVisibility(View.VISIBLE);
+            Button installOrbot = (Button) findViewById(R.id.installOrbot);
+            installOrbot.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("market://details?id=" + OrbotHelper.URI_ORBOT));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    try {
+                        startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://guardianproject.info/apps/orbot")));
                     }
                 }
             });

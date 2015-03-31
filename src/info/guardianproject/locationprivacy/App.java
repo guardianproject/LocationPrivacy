@@ -8,13 +8,16 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import info.guardianproject.onionkit.ui.OrbotHelper;
+
 public class App extends Application {
 
     // preferred trusted map app
     public static final String OSMAND_FREE = "net.osmand";
     public static final String OSMAND_PLUS = "net.osmand.plus";
-
+    public static final int ORBOT_START_RESULT = 0x04807;
     private static String selectedPackageName;
+    static OrbotHelper orbotHelper;
 
     private PackageMonitor packageMonitor;
 
@@ -23,6 +26,7 @@ public class App extends Application {
         Prefs.setup(this);
         packageMonitor = new PackageMonitor();
         packageMonitor.register(this, true);
+        orbotHelper = new OrbotHelper(getApplicationContext());
         super.onCreate();
     }
 
@@ -62,5 +66,17 @@ public class App extends Application {
      */
     public static String getSelectedPackageName() {
         return selectedPackageName;
+    }
+
+    public static boolean requestOrbotStart(Activity activity) {
+        if (orbotHelper.isOrbotInstalled()) {
+            if (!orbotHelper.isOrbotRunning()) {
+                Intent intent = new Intent(OrbotHelper.URI_ORBOT);
+                intent.setAction(OrbotHelper.ACTION_START_TOR);
+                activity.startActivityForResult(intent, ORBOT_START_RESULT);
+                return true;
+            }
+        }
+        return false;
     }
 }

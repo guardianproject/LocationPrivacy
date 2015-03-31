@@ -39,7 +39,15 @@ public class GetGeoFromRedirectUri extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
+        if (App.requestOrbotStart(this)) {
+            Toast.makeText(this, R.string.start_orbot_, Toast.LENGTH_LONG).show();
+            // now wait for onActivityResult
+        } else {
+            processIntent();
+        }
+    }
 
+    private void processIntent() {
         intent = getIntent();
         if (intent == null) {
             finish();
@@ -61,6 +69,12 @@ public class GetGeoFromRedirectUri extends Activity {
             Toast.makeText(this, R.string.ignoring_unparsable_url, Toast.LENGTH_SHORT).show();
         }
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        processIntent();
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     class RedirectHeaderAsyncTask extends AsyncTask<String, Void, String> {

@@ -48,7 +48,15 @@ public class GoogleUriActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (App.requestOrbotStart(this)) {
+            Toast.makeText(this, R.string.start_orbot_, Toast.LENGTH_LONG).show();
+            // now wait for onActivityResult
+        } else {
+            processIntent();
+        }
+    }
 
+    private void processIntent() {
         intent = getIntent();
         if (intent == null) {
             finish();
@@ -85,6 +93,12 @@ public class GoogleUriActivity extends Activity {
             }
         }
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        processIntent();
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private boolean viewUrlString(String uriString) {

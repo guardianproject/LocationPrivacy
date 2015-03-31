@@ -46,6 +46,33 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/installOrbotLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_deep_teal_200"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/why_orbot"
+            android:textAppearance="?android:attr/textAppearance" />
+
+        <Button
+            android:id="@+id/installOrbot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@string/install_orbot"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
