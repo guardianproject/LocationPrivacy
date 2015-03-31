@@ -59,7 +59,6 @@
                 <data android:host="www.openstreetmap.org" />
                 <data android:host="www.openstreetmaps.org" />
                 <data android:host="maps.apple.com" />
-                <data android:host="maps.google.com" />
                 <data android:host="maps.yandex.ru" />
                 <data android:host="maps.yandex.com" />
                 <data android:host="map.baidu.cn" />
