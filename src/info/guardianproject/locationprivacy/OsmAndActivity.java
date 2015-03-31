@@ -46,7 +46,7 @@ public class OsmAndActivity extends Activity {
                     intent.setData(builder.build());
                 }
             } else {
-                intent.setData(Uri.parse(point.toString()));
+                intent.setData(Uri.parse(point.getGeoUriString()));
             }
         }
         App.startActivityWithTrustedApp(this, intent);

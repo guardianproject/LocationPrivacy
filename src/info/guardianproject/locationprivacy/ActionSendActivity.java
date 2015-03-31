@@ -15,11 +15,11 @@ import android.util.Patterns;
 import android.view.Window;
 import android.widget.TextView;
 
-import java.util.List;
-import java.util.regex.Matcher;
-
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
+
+import java.util.List;
+import java.util.regex.Matcher;
 
 public class ActionSendActivity extends AppCompatActivity {
     public static final String TAG = "ActionSendActivity";
@@ -51,7 +51,7 @@ public class ActionSendActivity extends AppCompatActivity {
         if (uri != null) {
             GeoParsedPoint point = GeoPointParserUtil.parse(uri.toString());
             if (point != null) {
-                uri = Uri.parse(point.toString());
+                uri = Uri.parse(point.getGeoUriString());
                 intent.setData(uri);
             }
         }
@@ -161,7 +161,7 @@ public class ActionSendActivity extends AppCompatActivity {
         Log.i(TAG, "host: " + host);
         GeoParsedPoint point = GeoPointParserUtil.parse(urlString);
         if (point != null) {
-            return point.toString();
+            return point.getGeoUriString();
         } else {
             Log.i(TAG, "try https");
             if (TextUtils.equals(scheme, "http") && (host != null) && (

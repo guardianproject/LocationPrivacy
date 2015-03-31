@@ -90,7 +90,7 @@ public class GetGeoFromRedirectUri extends Activity {
                 if (!TextUtils.isEmpty(uriString)) {
                     GeoParsedPoint point = GeoPointParserUtil.parse(uriString);
                     if (point != null)
-                        result = point.toString();
+                        result = point.getGeoUriString();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

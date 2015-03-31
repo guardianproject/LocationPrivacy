@@ -101,7 +101,7 @@ public class GoogleUriActivity extends Activity {
             return false;
         } else {
             // reuse the Intent in case it contains anything else useful
-            intent.setData(Uri.parse(point.toString()));
+            intent.setData(Uri.parse(point.getGeoUriString()));
             App.startActivityWithTrustedApp(this, intent);
             finish();
             return true;
@@ -197,7 +197,7 @@ public class GoogleUriActivity extends Activity {
                 object = object.getJSONObject("viewport").getJSONObject("center");
                 GeoParsedPoint point = new GeoParsedPoint(object.getDouble("lat"),
                         object.getDouble("lng"));
-                result = point.toString();
+                result = point.getGeoUriString();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
