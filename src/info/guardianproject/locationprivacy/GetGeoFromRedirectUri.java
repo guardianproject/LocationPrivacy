@@ -4,7 +4,6 @@ package info.guardianproject.locationprivacy;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -59,11 +58,11 @@ public class GetGeoFromRedirectUri extends Activity {
         Uri uri = intent.getData();
         Log.i(TAG, "uri: " + uri);
         if (uri != null && uri.isHierarchical()) {
-            new RedirectHeaderAsyncTask().execute(uri.toString());
+            new RedirectHeaderAsyncTask(this, uri).execute();
         } else {
             Toast.makeText(this, R.string.ignoring_unparsable_url, Toast.LENGTH_SHORT).show();
+            finish();
         }
-        finish();
     }
 
     @Override
@@ -72,14 +71,18 @@ public class GetGeoFromRedirectUri extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    class RedirectHeaderAsyncTask extends AsyncTask<String, Void, String> {
+    class RedirectHeaderAsyncTask extends HttpFetchProgressAsyncTask {
+
+        public RedirectHeaderAsyncTask(Activity activity, Uri uri) {
+            super(activity, uri);
+        }
 
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(Void... params) {
             String result = null;
             HttpURLConnection connection = null;
             try {
-                connection = App.getHttpURLConnection(params[0]);
+                connection = App.getHttpURLConnection(this.urlString);
                 connection.setRequestMethod("HEAD");
                 connection.connect();
                 connection.getResponseCode(); // this actually makes it go

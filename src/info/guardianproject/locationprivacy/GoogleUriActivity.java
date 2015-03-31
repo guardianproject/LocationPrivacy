@@ -4,7 +4,6 @@ package info.guardianproject.locationprivacy;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -65,9 +64,7 @@ public class GoogleUriActivity extends Activity {
 
         if (TextUtils.equals(uri.getHost(), "goo.gl")) {
             // nothing useful can be parsed from a goo.gl shortlink
-            new RedirectHeaderAsyncTask().execute(new String[] {
-                    uri.toString()
-            });
+            new RedirectHeaderAsyncTask(this, uri).execute();
         } else {
             if (uri.getHost().startsWith("maps.google.")) {
                 // prevent yet another redirect
@@ -82,12 +79,9 @@ public class GoogleUriActivity extends Activity {
             // first try parsing, then if that fails, fetch
             String uriString = uri.toString();
             if (!viewUrlString(uriString)) {
-                new GetLatLonAsyncTask().execute(new String[] {
-                        uriString
-                });
+                new GetLatLonAsyncTask(GoogleUriActivity.this, uriString).execute();
             }
         }
-        finish();
     }
 
     @Override
@@ -109,15 +103,20 @@ public class GoogleUriActivity extends Activity {
             // reuse the Intent in case it contains anything else useful
             intent.setData(Uri.parse(point.toString()));
             App.startActivityWithTrustedApp(this, intent);
+            finish();
             return true;
         }
     }
 
-    class RedirectHeaderAsyncTask extends AsyncTask<String, Void, String> {
+    class RedirectHeaderAsyncTask extends HttpFetchProgressAsyncTask {
+
+        public RedirectHeaderAsyncTask(Activity activity, Uri uri) {
+            super(activity, uri);
+        }
 
         @Override
-        protected String doInBackground(String... params) {
-            String urlString = params[0].replaceFirst("^http:", "https:");
+        protected String doInBackground(Void... params) {
+            String urlString = this.urlString.replaceFirst("^http:", "https:");
             String result = null;
             HttpURLConnection connection = null;
             try {
@@ -146,19 +145,22 @@ public class GoogleUriActivity extends Activity {
                 App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
             } else {
                 if (!viewUrlString(uriString)) {
-                    new GetLatLonAsyncTask().execute(new String[] {
-                            uriString
-                    });
+                    new GetLatLonAsyncTask(GoogleUriActivity.this, uriString).execute();
                 }
             }
+            finish();
         }
     }
 
-    class GetLatLonAsyncTask extends AsyncTask<String, Void, String> {
+    class GetLatLonAsyncTask extends HttpFetchProgressAsyncTask {
+
+        public GetLatLonAsyncTask(Activity activity, String urlString) {
+            super(activity, urlString);
+        }
 
         @Override
-        protected String doInBackground(String... params) {
-            Uri uri = Uri.parse(params[0]);
+        protected String doInBackground(Void... params) {
+            Uri uri = Uri.parse(this.urlString);
             Uri.Builder builder = uri.buildUpon();
             builder.scheme("https");
             // maps.google.com is a redirect
@@ -219,6 +221,7 @@ public class GoogleUriActivity extends Activity {
             if (!viewUrlString(uriString)) {
                 App.startActivityWithTrustedApp(GoogleUriActivity.this, intent);
             }
+            finish();
         }
     }
 }
