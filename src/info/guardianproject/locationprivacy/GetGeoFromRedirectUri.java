@@ -4,7 +4,6 @@ package info.guardianproject.locationprivacy;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,12 +13,8 @@ import android.widget.Toast;
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpUriRequest;
-
 import java.io.IOException;
+import java.net.HttpURLConnection;
 
 // TODO this should also work with HTML Redirect pages, like https://her.is/v4qvgo
 
@@ -31,7 +26,7 @@ import java.io.IOException;
  * @author hans
  */
 public class GetGeoFromRedirectUri extends Activity {
-    public static final String TAG = "GetUriFromRedirectActivity";
+    public static final String TAG = "GetGeoFromRedirectUri";
 
     private Intent intent;
 
@@ -81,47 +76,40 @@ public class GetGeoFromRedirectUri extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            AndroidHttpClient httpClient = AndroidHttpClient
-                    .newInstance(getString(R.string.app_name));
-            HttpUriRequest request;
-            HttpResponse response;
+            String result = null;
+            HttpURLConnection connection = null;
             try {
-                request = new HttpHead(params[0]);
-                response = httpClient.execute(request);
-                Log.i(TAG, "response: " + response);
-                return response.getLastHeader("Location").getValue();
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
+                connection = App.getHttpURLConnection(params[0]);
+                connection.setRequestMethod("HEAD");
+                connection.connect();
+                connection.getResponseCode(); // this actually makes it go
+                String uriString = connection.getHeaderField("Location");
+                if (!TextUtils.isEmpty(uriString)) {
+                    GeoParsedPoint point = GeoPointParserUtil.parse(uriString);
+                    if (point != null)
+                        result = point.toString();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                if (httpClient != null) {
-                    httpClient.close();
-                    httpClient = null;
-                }
+                if (connection != null)
+                    connection.disconnect();
             }
-            return null;
+            return result;
         }
 
         @Override
         protected void onPostExecute(String uriString) {
             Log.i(TAG, "onPostExecute header " + uriString);
-            super.onPostExecute(uriString);
 
             if (TextUtils.isEmpty(uriString)) {
                 Toast.makeText(GetGeoFromRedirectUri.this, R.string.ignoring_unparsable_url,
                         Toast.LENGTH_SHORT).show();
             } else {
-                GeoParsedPoint point = GeoPointParserUtil.parse(uriString);
-                if (point == null) {
-                    Toast.makeText(GetGeoFromRedirectUri.this,
-                            R.string.ignoring_unparsable_url,
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    intent.setData(Uri.parse(point.toString()));
-                    App.startActivityWithTrustedApp(GetGeoFromRedirectUri.this, intent);
-                }
+                intent.setData(Uri.parse(uriString));
+                App.startActivityWithTrustedApp(GetGeoFromRedirectUri.this, intent);
             }
+            super.onPostExecute(uriString);
             finish();
         }
     }

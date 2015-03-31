@@ -4,28 +4,23 @@ package info.guardianproject.locationprivacy;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
 import android.widget.Toast;
 
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 
 /**
  * goo.gl short URIs (e.g. {@link http://goo.gl/maps/Cji0V} are a simple HTTP
@@ -122,24 +117,22 @@ public class GoogleUriActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            AndroidHttpClient httpClient = AndroidHttpClient
-                    .newInstance(getString(R.string.app_name));
             String urlString = params[0].replaceFirst("^http:", "https:");
+            String result = null;
+            HttpURLConnection connection = null;
             try {
-                HttpUriRequest request = new HttpHead(urlString);
-                HttpResponse response = httpClient.execute(request);
-                return response.getLastHeader("Location").getValue();
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
+                connection = App.getHttpURLConnection(urlString);
+                connection.setRequestMethod("HEAD");
+                connection.connect();
+                connection.getResponseCode(); // this actually makes it go
+                result = connection.getHeaderField("Location");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                if (httpClient != null) {
-                    httpClient.close();
-                    httpClient = null;
-                }
+                if (connection != null)
+                    connection.disconnect();
             }
-            return null;
+            return result;
         }
 
         @Override
@@ -165,9 +158,6 @@ public class GoogleUriActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            AndroidHttpClient httpClient = AndroidHttpClient
-                    .newInstance(getString(R.string.app_name));
-            HttpUriRequest request;
             Uri uri = Uri.parse(params[0]);
             Uri.Builder builder = uri.buildUpon();
             builder.scheme("https");
@@ -181,39 +171,47 @@ public class GoogleUriActivity extends Activity {
             builder.appendQueryParameter("output", "json");
             // make the data returned as small as possible
             builder.appendQueryParameter("num", "0");
+
+            HttpURLConnection connection = null;
+            InputStream in = null;
+            String result = null;
             try {
                 // TODO this doesn't really work yet
-                request = new HttpGet(builder.build().toString());
-                HttpResponse response = httpClient.execute(request);
-                HttpEntity responseEntity = response.getEntity();
-                if (responseEntity != null) {
-                    String responseBody = EntityUtils.toString(responseEntity, "UTF-8");
-                    String jsonText = responseBody.substring(responseBody.indexOf("{"));
-                    JSONTokener tokener = new JSONTokener(Html.fromHtml(jsonText).toString());
-                    Object nextValue;
-                    do {
-                        nextValue = tokener.nextValue();
-                    } while (!(nextValue instanceof JSONObject));
-                    JSONObject object = (JSONObject) nextValue;
-                    object = object.getJSONObject("viewport").getJSONObject("center");
-                    GeoParsedPoint point = new GeoParsedPoint(object.getDouble("lat"),
-                            object.getDouble("lng"));
-                    return point.toString();
+                connection = App.getHttpURLConnection(builder.build().toString());
+                connection.setRequestMethod("GET");
+                connection.connect();
+                in = connection.getInputStream(); // this actually makes it go
+                BufferedReader bReader = new BufferedReader(new InputStreamReader(in));
+                String temp, response = "";
+                while ((temp = bReader.readLine()) != null) {
+                    response += temp;
                 }
-                return null;
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
+                JSONTokener tokener = new JSONTokener(response);
+                Object nextValue = tokener.nextValue();
+                do {
+                    nextValue = tokener.nextValue();
+                } while (!(nextValue instanceof JSONObject));
+                JSONObject object = (JSONObject) nextValue;
+                object = object.getJSONObject("viewport").getJSONObject("center");
+                GeoParsedPoint point = new GeoParsedPoint(object.getDouble("lat"),
+                        object.getDouble("lng"));
+                result = point.toString();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
                 e.printStackTrace();
             } finally {
-                if (httpClient != null) {
-                    httpClient.close();
-                    httpClient = null;
+                if (in != null) {
+                    try {
+                        // this will close the bReader as well
+                        in.close();
+                    } catch (IOException ignored) {
+                    }
                 }
+                if (connection != null)
+                    connection.disconnect();
             }
-            return null;
+            return result;
         }
 
         @Override

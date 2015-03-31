@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import info.guardianproject.onionkit.ui.OrbotHelper;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+
 public class App extends Application {
 
     // preferred trusted map app
@@ -66,6 +72,27 @@ public class App extends Application {
      */
     public static String getSelectedPackageName() {
         return selectedPackageName;
+    }
+
+    public static HttpURLConnection getHttpURLConnection(String urlString) throws IOException {
+        return getHttpURLConnection(new URL(urlString));
+    }
+
+    public static HttpURLConnection getHttpURLConnection(URL url) throws IOException {
+        HttpURLConnection connection = null;
+        if (orbotHelper.isOrbotInstalled()) {
+            InetSocketAddress isa = new InetSocketAddress("127.0.0.1", 8118);
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, isa);
+            connection = (HttpURLConnection) url.openConnection(proxy);
+        } else {
+            connection = (HttpURLConnection) url.openConnection();
+        }
+        if (connection == null)
+            return null;
+        connection.setDoInput(true);
+        connection.setDoOutput(false);
+        connection.setInstanceFollowRedirects(false);
+        return connection;
     }
 
     public static boolean requestOrbotStart(Activity activity) {
