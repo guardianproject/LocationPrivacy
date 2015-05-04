@@ -14,6 +14,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -225,7 +226,10 @@ public class MainActivity extends AppCompatActivity {
         Prefs.setTrustedApp(entry.packageName);
         App.setSelectedPackageName(entry.packageName);
         chooseTrustedAppButton.setText(entry.simpleName);
-        chooseTrustedAppButton.setCompoundDrawables(entry.icon, null, null, null);
+        if (Build.VERSION.SDK_INT >= 17)
+            chooseTrustedAppButton.setCompoundDrawablesRelative(entry.icon, null, null, null);
+        else
+            chooseTrustedAppButton.setCompoundDrawables(entry.icon, null, null, null);
         chooseTrustedAppButton.setPadding(dp20, dp20, dp20, dp20);
         chooseTrustedAppButton.setCompoundDrawablePadding(dp10);
     }

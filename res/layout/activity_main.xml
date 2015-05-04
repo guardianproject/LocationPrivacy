@@ -15,7 +15,7 @@
         android:id="@+id/chooseTrustedAppButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left|center_vertical"
+        android:gravity="left|start|center_vertical"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
