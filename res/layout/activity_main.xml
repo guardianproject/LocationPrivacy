@@ -1,92 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="5dp" >
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/choose_trusted_map_app"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/chooseTrustedAppButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left|start|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/noMapApp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/material_deep_teal_200"
-        android:padding="15dp"
-        android:text="@string/no_geo_map_app"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/installOsmAndLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_deep_teal_200"
         android:orientation="vertical"
         android:padding="5dp" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/recommended_app"
-            android:textAppearance="?android:attr/textAppearance" />
+            android:text="@string/choose_trusted_map_app"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button
-            android:id="@+id/installOsmAnd"
-            android:layout_width="wrap_content"
+            android:id="@+id/chooseTrustedAppButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="@string/install_osmand"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|start|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/installOrbotLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/material_deep_teal_200"
-        android:orientation="vertical"
-        android:padding="5dp" >
+        <TextView
+            android:id="@+id/noMapApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_deep_teal_200"
+            android:padding="15dp"
+            android:text="@string/no_geo_map_app"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:id="@+id/installOsmAndLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_deep_teal_200"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/recommended_app"
+                android:textAppearance="?android:attr/textAppearance" />
+
+            <Button
+                android:id="@+id/installOsmAnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/install_osmand"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/installOrbotLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_deep_teal_200"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/why_orbot"
+                android:textAppearance="?android:attr/textAppearance" />
+
+            <Button
+                android:id="@+id/installOrbot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/install_orbot"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="web"
             android:padding="10dp"
-            android:text="@string/why_orbot"
-            android:textAppearance="?android:attr/textAppearance" />
-
-        <Button
-            android:id="@+id/installOrbot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="@string/install_orbot"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold" />
+            android:text="@string/give_feedback" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:padding="10dp"
-        android:text="@string/give_feedback" />
-
-</LinearLayout>
+</ScrollView>
