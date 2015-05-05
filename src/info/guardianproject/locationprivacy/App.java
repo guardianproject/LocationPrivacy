@@ -18,6 +18,7 @@ import java.net.Proxy;
 import java.net.URL;
 
 public class App extends Application {
+    public static final String TAG = "LocationPrivacy";
 
     // preferred trusted map app
     public static final String OSMAND_FREE = "net.osmand";
@@ -46,7 +47,7 @@ public class App extends Application {
                 // narrow down the choice of Activities to this packageName
                 intent.setPackage(selectedPackageName);
             }
-            Log.i("startActivityWithTrustedApp", intent.getData() + " " + intent.getPackage());
+            Log.i(TAG, "startActivityWithTrustedApp " + intent.getData() + " " + intent.getPackage());
             startActivity(activity, intent);
         }
     }

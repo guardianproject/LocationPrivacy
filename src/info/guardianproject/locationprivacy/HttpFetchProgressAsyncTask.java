@@ -8,12 +8,12 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public abstract class HttpFetchProgressAsyncTask extends AsyncTask<Void, Void, String> {
-    private static final String TAG = "HttpFetchProgressAsyncTask";
+
     private ProgressDialog dialog;
     final protected String urlString;
 
     public HttpFetchProgressAsyncTask(Activity activity, String urlString) {
-        Log.v(TAG, "HttpFetchProgressAsyncTask " + activity.getClass().getSimpleName() + " "
+        Log.v(App.TAG, "HttpFetchProgressAsyncTask " + activity.getClass().getSimpleName() + " "
                 + urlString);
         this.dialog = new ProgressDialog(activity);
         this.urlString = urlString;
@@ -21,12 +21,12 @@ public abstract class HttpFetchProgressAsyncTask extends AsyncTask<Void, Void, S
 
     public HttpFetchProgressAsyncTask(Activity activity, Uri uri) {
         this(activity, uri.toString());
-        Log.v(TAG, "HttpFetchProgressAsyncTask " + activity.getClass().getSimpleName() + " " + uri);
+        Log.v(App.TAG, "HttpFetchProgressAsyncTask " + activity.getClass().getSimpleName() + " " + uri);
     }
 
     @Override
     protected void onPreExecute() {
-        Log.v(TAG, "onPreExecute " + " " + urlString);
+        Log.v(App.TAG, "onPreExecute " + " " + urlString);
         dialog.setMessage("Fetching " + urlString);
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
@@ -35,7 +35,7 @@ public abstract class HttpFetchProgressAsyncTask extends AsyncTask<Void, Void, S
     }
 
     protected void dismissDialog() {
-        Log.v(TAG, "dismissDialog " + " " + urlString);
+        Log.v(App.TAG, "dismissDialog " + " " + urlString);
         if (dialog != null) {
             if (dialog.isShowing())
                 dialog.dismiss();
@@ -45,7 +45,7 @@ public abstract class HttpFetchProgressAsyncTask extends AsyncTask<Void, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-        Log.v(TAG, "onPostExecute " + " " + urlString + "  result: " + result);
+        Log.v(App.TAG, "onPostExecute " + " " + urlString + "  result: " + result);
         dismissDialog();
     }
 }
