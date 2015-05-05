@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TrustedAppEntry CHOOSER;
 
     private PackageManager pm;
+    private TextView noMapAppTextView;
     private LinearLayout installOsmAndLayout;
     private LinearLayout installOrbotLayout;
     private Button chooseTrustedAppButton;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         CHOOSER = new TrustedAppEntry(Prefs.CHOOSER_NAME, R.string.chooser,
                 android.R.drawable.ic_menu_more);
 
+        noMapAppTextView = (TextView) findViewById(R.id.noMapApp);
         installOsmAndLayout = (LinearLayout) findViewById(R.id.installOsmAndLayout);
         installOrbotLayout = (LinearLayout) findViewById(R.id.installOrbotLayout);
 
@@ -140,6 +142,13 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         boolean osmandFreeInstalled = isInstalled(App.OSMAND_FREE);
         boolean osmandPlusInstalled = isInstalled(App.OSMAND_PLUS);
+
+        Intent geo = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0"));
+        List<ResolveInfo> resInfos = pm.queryIntentActivities(geo, 0);
+        if (resInfos.size() == 0)
+            noMapAppTextView.setVisibility(View.VISIBLE);
+        else
+            noMapAppTextView.setVisibility(View.GONE);
 
         if (Prefs.contains(Prefs.TRUSTED_APP_PREF)) {
             setSelectedApp(Prefs.getTrustedApp());

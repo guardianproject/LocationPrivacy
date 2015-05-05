@@ -14,6 +14,7 @@
     <string name="why_orbot">Orbot provides Tor, which anonymizes your network traffic.  LocationPrivacy will leak a lot less information when it works together with Orbot.  It is Free Software.</string>
     <string name="install_orbot">Install Orbot</string>
     <string name="blocked_url">LocationPrivacy blocked this URL!</string>
+    <string name="no_geo_map_app">No installed map app that understands geo: location URIs!</string>
 
     <!-- menu titles -->
     <string name="about">About…</string>

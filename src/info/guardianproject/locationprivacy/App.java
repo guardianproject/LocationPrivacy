@@ -3,6 +3,7 @@ package info.guardianproject.locationprivacy;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
@@ -46,7 +47,7 @@ public class App extends Application {
                 intent.setPackage(selectedPackageName);
             }
             Log.i("startActivityWithTrustedApp", intent.getData() + " " + intent.getPackage());
-            activity.startActivity(intent);
+            startActivity(activity, intent);
         }
     }
 
@@ -56,7 +57,18 @@ public class App extends Application {
         } else {
             intent.setComponent(null); // prompt user for Activity to view URI
             Toast.makeText(activity, R.string.ignoring_unparsable_url, Toast.LENGTH_LONG).show();
+            startActivity(activity, intent);
+        }
+    }
+
+    private static void startActivity(Activity activity, Intent intent) {
+        try {
             activity.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(activity, R.string.no_geo_map_app, Toast.LENGTH_LONG).show();
+            // show the main screen to walk the user through installing Osmand
+            activity.startActivity(new Intent(activity, MainActivity.class));
         }
     }
 

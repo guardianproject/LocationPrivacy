@@ -19,6 +19,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/noMapApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_deep_teal_200"
+        android:padding="15dp"
+        android:text="@string/no_geo_map_app"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <LinearLayout
         android:id="@+id/installOsmAndLayout"
         android:layout_width="match_parent"
