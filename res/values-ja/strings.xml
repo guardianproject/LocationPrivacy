@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">LocationPrivacy</string>
+  <string name="app_description">LocationPrivacy は単独のアプリではなく、位置を共有するさまざまな方法に対して使用する \"インテントフィルター\" のセットです。あなたがあるアプリで位置を共有する時に、LocationPrivacy はひとつのオプションとして提供されます。その時に、安全ではない位置の共有方法を認識して、より安全な方法に変換します。つまり、主に https を使用するように URL を書き換えます。完全にオフラインの設定で動作することができる `geo:` も使用するようにします。 LocationPrivacy は、主に URL 自体から位置情報を読み取ることで動作します。多くの URL に対して、LocationPrivacy が位置を取得するために、実際にウェブページの一部をロードする必要があります。</string>
+  <string name="usage">このアプリを使用するには、位置のリンクをクリックして LocationPrivacy を選択するか、LocationPrivacy にテキストを共有してください。最初に LocationPrivacy を選択すると、情報を処理し、その後で再度、よりプライベートな位置のURLを受け付けるアプリの新しいリストでプロンプトを表示します。例えば以下をクリックしてください:</string>
+  <string name="give_feedback">私たちはあなたのフィードバックをお待ちしています! 問題の提出は、ここをクリックしてください: https://dev.guardianproject.info/projects/panic/issues</string>
+  <string name="force_https">HTTPS を強制的に使用する</string>
+  <string name="send_location_to">位置を送信…</string>
+  <string name="view_in">%1$s で表示</string>
+  <string name="ignoring_unparsable_url">解析できない URL を無視します。別のアプリを試してみてください!</string>
+  <string name="choose_trusted_map_app">信頼できる地図アプリを選択してください</string>
+  <string name="recommended_app">OsmAnd は、完全なオフライン操作を提供するプライベートなマップアプリとして推奨されています。それはデバイスから何にもあなたのプライベート情報を漏洩しないことを意味します。また、フリーソフトウェアでもあります。</string>
+  <string name="install_osmand">OsmAnd をインストール</string>
+  <string name="why_orbot">Orbot は、ネットワーク トラフィックを匿名化する Tor を提供します。Orbot と一緒に動作させると、LocationPrivacy が情報をリークする可能性がはるかに少なくなります。これはフリーソフトウェアです。</string>
+  <string name="install_orbot">Orbot をインストール</string>
+  <string name="blocked_url">LocationPrivacy がこの URL をブロックしました!</string>
+  <string name="no_geo_map_app">geo: 位置 URI を理解する地図アプリは、インストールされていません!</string>
+  <!--menu titles-->
+  <string name="about">アプリについて…</string>
+  <!--trusted app chooser titles-->
+  <string name="blocked">ブロックしました</string>
+  <string name="chooser">選択</string>
+</resources>
