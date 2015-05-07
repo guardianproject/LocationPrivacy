@@ -59,14 +59,8 @@ fi
 ./setup-ant
 faketime -f "$TIMESTAMP" ant release
 
-apk=$projectroot/bin/$projectname-v$versionName.apk
+apk=$projectroot/bin/$projectname-$describe.apk
 
-# mark APK with actual build info, instead of version in manifest
-if [ $versionName != $describe ]; then
-    debugapk=$projectroot/bin/$projectname-$describe.apk
-    mv $apk $debugapk
-    apk=$debugapk
-fi
 if which gpg > /dev/null; then
     if [ -z "`gpg --list-secret-keys`" ]; then
         echo "No GPG secret keys found, not signing APK"
