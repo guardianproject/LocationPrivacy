@@ -9,14 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import info.guardianproject.onionkit.ui.OrbotHelper;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
-
 public class App extends Application {
     public static final String TAG = "LocationPrivacy";
 
@@ -25,7 +17,6 @@ public class App extends Application {
     public static final String OSMAND_PLUS = "net.osmand.plus";
     public static final int ORBOT_START_RESULT = 0x04807;
     private static String selectedPackageName;
-    static OrbotHelper orbotHelper;
 
     private PackageMonitor packageMonitor;
 
@@ -34,7 +25,6 @@ public class App extends Application {
         Prefs.setup(this);
         packageMonitor = new PackageMonitor();
         packageMonitor.register(this, true);
-        orbotHelper = new OrbotHelper(getApplicationContext());
         super.onCreate();
     }
 
@@ -85,38 +75,5 @@ public class App extends Application {
      */
     public static String getSelectedPackageName() {
         return selectedPackageName;
-    }
-
-    public static HttpURLConnection getHttpURLConnection(String urlString) throws IOException {
-        return getHttpURLConnection(new URL(urlString));
-    }
-
-    public static HttpURLConnection getHttpURLConnection(URL url) throws IOException {
-        HttpURLConnection connection = null;
-        if (orbotHelper.isOrbotInstalled()) {
-            InetSocketAddress isa = new InetSocketAddress("127.0.0.1", 8118);
-            Proxy proxy = new Proxy(Proxy.Type.HTTP, isa);
-            connection = (HttpURLConnection) url.openConnection(proxy);
-        } else {
-            connection = (HttpURLConnection) url.openConnection();
-        }
-        if (connection == null)
-            return null;
-        connection.setDoInput(true);
-        connection.setDoOutput(false);
-        connection.setInstanceFollowRedirects(false);
-        return connection;
-    }
-
-    public static boolean requestOrbotStart(Activity activity) {
-        if (orbotHelper.isOrbotInstalled()) {
-            if (!orbotHelper.isOrbotRunning()) {
-                Intent intent = new Intent(OrbotHelper.URI_ORBOT);
-                intent.setAction(OrbotHelper.ACTION_START_TOR);
-                activity.startActivityForResult(intent, ORBOT_START_RESULT);
-                return true;
-            }
-        }
-        return false;
     }
 }

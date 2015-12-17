@@ -15,6 +15,10 @@
     <string name="install_orbot">Install Orbot</string>
     <string name="blocked_url">LocationPrivacy blocked this URL!</string>
     <string name="no_geo_map_app">No installed map app that understands geo: location URIs!</string>
+    <string name="start_orbot_">Start Orbot?</string>
+    <string name="you_must_have_orbot">You must have Orbot installed and activated to proxy traffic through it. Would you like to download it?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!-- menu titles -->
     <string name="about">About…</string>

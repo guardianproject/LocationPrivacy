@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import info.guardianproject.netcipher.NetCipher;
+import info.guardianproject.netcipher.proxy.OrbotHelper;
+
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
@@ -19,7 +22,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * goo.gl short URIs (e.g. {@link http://goo.gl/maps/Cji0V} are a simple HTTP
@@ -42,7 +46,7 @@ public class GoogleUriActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (App.requestOrbotStart(this)) {
+        if (OrbotHelper.requestStartTor(this)) {
             Toast.makeText(this, R.string.start_orbot_, Toast.LENGTH_LONG).show();
             // now wait for onActivityResult
         } else {
@@ -114,11 +118,10 @@ public class GoogleUriActivity extends Activity {
 
         @Override
         protected String doInBackground(Void... params) {
-            String urlString = this.urlString.replaceFirst("^http:", "https:");
             String result = null;
-            HttpURLConnection connection = null;
+            HttpsURLConnection connection = null;
             try {
-                connection = App.getHttpURLConnection(urlString);
+                connection = NetCipher.getHttpsURLConnection(urlString);
                 connection.setRequestMethod("HEAD");
                 connection.connect();
                 connection.getResponseCode(); // this actually makes it go
@@ -167,12 +170,12 @@ public class GoogleUriActivity extends Activity {
             // make the data returned as small as possible
             builder.appendQueryParameter("num", "0");
 
-            HttpURLConnection connection = null;
+            HttpsURLConnection connection = null;
             InputStream in = null;
             String result = null;
             try {
                 // TODO this doesn't really work yet
-                connection = App.getHttpURLConnection(builder.build().toString());
+                connection = NetCipher.getHttpsURLConnection(builder.build().toString());
                 connection.setRequestMethod("GET");
                 connection.connect();
                 in = connection.getInputStream(); // this actually makes it go

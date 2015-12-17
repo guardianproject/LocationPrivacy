@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import info.guardianproject.onionkit.ui.OrbotHelper;
+import info.guardianproject.netcipher.proxy.OrbotHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -189,11 +189,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        if (App.orbotHelper.isOrbotInstalled()) {
+        if (OrbotHelper.requestStartTor(this)) {
             installOrbotLayout.setVisibility(View.GONE);
-            if (!App.orbotHelper.isOrbotRunning()) {
-                App.orbotHelper.requestOrbotStart(this);
-            }
         } else {
             installOrbotLayout.setVisibility(View.VISIBLE);
             Button installOrbot = (Button) findViewById(R.id.installOrbot);
@@ -201,15 +198,8 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=" + OrbotHelper.URI_ORBOT));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    try {
-                        startActivity(intent);
-                    } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("https://guardianproject.info/apps/orbot")));
-                    }
+                    Intent intent = OrbotHelper.getOrbotInstallIntent(getBaseContext());
+                    startActivity(intent);
                 }
             });
         }

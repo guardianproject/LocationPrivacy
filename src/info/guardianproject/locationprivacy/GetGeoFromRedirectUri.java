@@ -9,6 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import info.guardianproject.netcipher.NetCipher;
+import info.guardianproject.netcipher.proxy.OrbotHelper;
+
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
 
@@ -33,7 +36,7 @@ public class GetGeoFromRedirectUri extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
-        if (App.requestOrbotStart(this)) {
+        if (OrbotHelper.requestStartTor(this)) {
             Toast.makeText(this, R.string.start_orbot_, Toast.LENGTH_LONG).show();
             // now wait for onActivityResult
         } else {
@@ -82,7 +85,7 @@ public class GetGeoFromRedirectUri extends Activity {
             String result = null;
             HttpURLConnection connection = null;
             try {
-                connection = App.getHttpURLConnection(this.urlString);
+                connection = NetCipher.getHttpURLConnection(this.urlString);
                 connection.setRequestMethod("HEAD");
                 connection.connect();
                 connection.getResponseCode(); // this actually makes it go
