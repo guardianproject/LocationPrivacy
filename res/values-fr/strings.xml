@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">GéoConfidentialité</string>
+  <string name="app_description">GéoConfidentialité n\'est pas vraiment une appli, mais plutôt un jeu de « filtres d\'intention » pour toutes les différents approches de partage de l\'emplacement. Lorsque vous partagez l\'emplacement à partir d\'une appli, GéoConfidentialité est offert comme option. L\'appli reconnaît ensuite les méthodes risquées de partage de l\'emplacement et les convertit en des méthodes plus sûres. Ceci signifie principalement que l\'appli réécrit les URL pour HTTPS, et même pour utiliser des URL `geo:` qui peuvent fonctionner dans des configurations complètement hors ligne. GéoConfidentialité fonctionne principalement en lisant les informations d\'emplacement à partir de l\'URL. Pour de nombreuses URL, GéoConfidentialité doit en fait charger la page Web afin d\'obtenir l\'emplacement.</string>
+  <string name="usage">Pour utiliser cette appli, cliquez sur un lien d\'emplacement et choisissez GéoConfidentialité, ou partagez un texte vers GéoConfidentialité. Choisissez d\'abord GéoConfidentialité, l\'appli traitera l\'information et vous présentera ensuite une nouvelle liste d\'applis qui accepte l\'URL d\'emplacement à confidentialité accrue. Cliquez ci-dessous pour un exemple :</string>
+  <string name="give_feedback">Nous voulons vos commentaires ! Cliquez ici pour signaler un problème : https://dev.guardianproject.info/projects/panic/issues</string>
+  <string name="force_https">Forcer HTTPS</string>
+  <string name="send_location_to">Envoyer l\'emplacement vers...</string>
+  <string name="view_in">visualiser dans %1$s</string>
+  <string name="ignoring_unparsable_url">Les URL non analysables sont ignorées, essayez une appli différente !</string>
+  <string name="choose_trusted_map_app">Choisir un appli de cartes de confiance</string>
+  <string name="recommended_app">OsmAnd est recommandée comme appli de cartes confidentielle et offrant un fonctionnement complet et hors ligne. Ceci signifie qu\'elle ne laissera par fuir vos infos confidentielles par-delà votre appareil. C\'est aussi un logiciel libre.</string>
+  <string name="install_osmand">Installer OsmAnd</string>
+  <string name="why_orbot">Orbot met Tor en place, qui à son tour rend anonymise votre trafic réseau. GéoConfidentialité laissera fuir beaucoup moins d\'informations si elle est utilisée avec Orbot. C\'est un logiciel libre.</string>
+  <string name="install_orbot">Installer Orbot</string>
+  <string name="blocked_url">GéoConfidentialité a bloqué cette URL !</string>
+  <string name="no_geo_map_app">Aucune appli de cartes comprenant les URL d\'emplacement geo: n\'est installée !</string>
+  <!--menu titles-->
+  <string name="about">À propos...</string>
+  <!--trusted app chooser titles-->
+  <string name="blocked">Bloquée</string>
+  <string name="chooser">Sélecteur</string>
+</resources>

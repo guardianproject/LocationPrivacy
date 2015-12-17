@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">LocationPrivacy</string>
+  <string name="force_https">HTTPS erzwingen</string>
+  <string name="send_location_to">Standort senden an…</string>
+  <string name="view_in">in %1$s ansehen</string>
+  <string name="choose_trusted_map_app">Wählen Sie eine vertrauenswürdige Karten-App aus</string>
+  <string name="install_osmand">OsmAnd installieren</string>
+  <string name="install_orbot">Orbot installieren</string>
+  <string name="blocked_url">LocationPrivacy hat diese URL blockiert!</string>
+  <!--menu titles-->
+  <string name="about">Über…</string>
+  <!--trusted app chooser titles-->
+  <string name="blocked">Blockiert</string>
+  <string name="chooser">Auswahl</string>
+</resources>
