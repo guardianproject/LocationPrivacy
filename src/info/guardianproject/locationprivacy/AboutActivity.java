@@ -30,6 +30,7 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         final Button gooGl = (Button) findViewById(R.id.gooGl);
         gooGl.setOnClickListener(new OnClickListener() {
 
@@ -37,6 +38,18 @@ public class AboutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(gooGl.getText().toString()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        final Button amapCom = (Button) findViewById(R.id.amapCom);
+        amapCom.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(amapCom.getText().toString()));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

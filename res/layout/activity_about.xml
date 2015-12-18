@@ -40,6 +40,13 @@
         android:layout_height="wrap_content"
         android:text="http://goo.gl/maps/Cji0V" />
 
+    <Button
+        android:id="@+id/amapCom"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://amap.com/0F0i02" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
