@@ -87,6 +87,10 @@ public class GetGeoFromRedirectUri extends Activity {
             try {
                 connection = NetCipher.getHttpURLConnection(this.urlString);
                 connection.setRequestMethod("HEAD");
+                connection.setInstanceFollowRedirects(false);
+                // gzip encoding seems to cause problems
+                // https://code.google.com/p/android/issues/detail?id=24672
+                connection.setRequestProperty("Accept-Encoding", "");
                 connection.connect();
                 connection.getResponseCode(); // this actually makes it go
                 String uriString = connection.getHeaderField("Location");

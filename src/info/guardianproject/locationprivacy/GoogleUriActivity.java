@@ -123,6 +123,10 @@ public class GoogleUriActivity extends Activity {
             try {
                 connection = NetCipher.getHttpsURLConnection(urlString);
                 connection.setRequestMethod("HEAD");
+                connection.setInstanceFollowRedirects(false);
+                // gzip encoding seems to cause problems
+                // https://code.google.com/p/android/issues/detail?id=24672
+                connection.setRequestProperty("Accept-Encoding", "");
                 connection.connect();
                 connection.getResponseCode(); // this actually makes it go
                 result = connection.getHeaderField("Location");
