@@ -19,6 +19,8 @@
     <string name="you_must_have_orbot">You must have Orbot installed and activated to proxy traffic through it. Would you like to download it?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="waiting_for_orbot">Waiting for Orbot to start…</string>
+    <string name="orbot_stopped">Orbot stopped, cancelling location lookup!</string>
 
     <!-- menu titles -->
     <string name="about">About…</string>

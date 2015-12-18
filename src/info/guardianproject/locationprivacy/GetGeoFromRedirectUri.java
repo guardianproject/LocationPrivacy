@@ -2,7 +2,9 @@
 package info.guardianproject.locationprivacy;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -32,16 +34,39 @@ public class GetGeoFromRedirectUri extends Activity {
 
     private Intent intent;
 
+    private BroadcastReceiver torStatusReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(android.content.Context context, Intent intent) {
+            if (TextUtils.equals(intent.getAction(), OrbotHelper.ACTION_STATUS)) {
+                String torStatus = intent.getStringExtra(OrbotHelper.EXTRA_STATUS);
+                if (OrbotHelper.STATUS_ON.equals(torStatus)) {
+                    processIntent();
+                } else if (OrbotHelper.STATUS_STARTING.equals(torStatus)) {
+                    Toast.makeText(context, R.string.waiting_for_orbot, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(context, R.string.orbot_stopped, Toast.LENGTH_LONG).show();
+                    GetGeoFromRedirectUri.this.finish();
+                }
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
-        if (OrbotHelper.requestStartTor(this)) {
-            Toast.makeText(this, R.string.start_orbot_, Toast.LENGTH_LONG).show();
-            // now wait for onActivityResult
-        } else {
-            processIntent();
+        registerReceiver(torStatusReceiver, new IntentFilter(OrbotHelper.ACTION_STATUS));
+        if (!OrbotHelper.requestStartTor(this)) {
+            // Orbot needs to be installed, so ignore this request
+            Toast.makeText(this, R.string.you_must_have_orbot, Toast.LENGTH_LONG).show();
+            finish();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(torStatusReceiver);
     }
 
     private void processIntent() {
