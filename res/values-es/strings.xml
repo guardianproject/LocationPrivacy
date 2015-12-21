@@ -5,7 +5,7 @@
   <string name="usage">Para usar esta aplicación, haga clic sobre un enlace de ubicación y escoja LocationPrivacy, o comparta algún texto con LocationPrivacy. Primero seleccione LocationPrivacy, este procesará la información, luego se dirigirá otra vez a usted con una nueva lista de aplicaciones que aceptan la resultante URL de ubicación de mayor privacidad. Haga clic debajo para ver un ejemplo:</string>
   <string name="give_feedback">¡Queremos sus comentarios! Haga clic debajo para consignar un asunto: https://dev.guardianproject.info/projects/panic/issues</string>
   <string name="force_https">Forzar HTTPS</string>
-  <string name="send_location_to">Enviar ubicación a...</string>
+  <string name="send_location_to">Enviar ubicación a…</string>
   <string name="view_in">ver en %1$s</string>
   <string name="ignoring_unparsable_url">¡Ignorando URL no procesable, pruebe con una aplicación distinta!</string>
   <string name="choose_trusted_map_app">Elija una aplicación de mapa de confianza</string>
@@ -16,7 +16,7 @@
   <string name="blocked_url">¡LocationPrivacy bloqueó esta URL!</string>
   <string name="no_geo_map_app">¡No hay ninguna aplicación de mapa instalada que interprete la URIs de localización geo: !</string>
   <!--menu titles-->
-  <string name="about">Acerca de...</string>
+  <string name="about">Acerca de…</string>
   <!--trusted app chooser titles-->
   <string name="blocked">Bloqueado</string>
   <string name="chooser">Selector</string>

@@ -5,7 +5,7 @@
   <string name="usage">Pour utiliser cette appli, cliquez sur un lien d\'emplacement et choisissez GéoConfidentialité, ou partagez un texte vers GéoConfidentialité. Choisissez d\'abord GéoConfidentialité, l\'appli traitera l\'information et vous présentera ensuite une nouvelle liste d\'applis qui accepte l\'URL d\'emplacement à confidentialité accrue. Cliquez ci-dessous pour un exemple :</string>
   <string name="give_feedback">Nous voulons vos commentaires ! Cliquez ici pour signaler un problème : https://dev.guardianproject.info/projects/panic/issues</string>
   <string name="force_https">Forcer HTTPS</string>
-  <string name="send_location_to">Envoyer l\'emplacement vers...</string>
+  <string name="send_location_to">Envoyer l\'emplacement vers…</string>
   <string name="view_in">visualiser dans %1$s</string>
   <string name="ignoring_unparsable_url">Les URL non analysables sont ignorées, essayez une appli différente !</string>
   <string name="choose_trusted_map_app">Choisir un appli de cartes de confiance</string>
@@ -16,7 +16,7 @@
   <string name="blocked_url">GéoConfidentialité a bloqué cette URL !</string>
   <string name="no_geo_map_app">Aucune appli de cartes comprenant les URL d\'emplacement geo: n\'est installée !</string>
   <!--menu titles-->
-  <string name="about">À propos...</string>
+  <string name="about">À propos…</string>
   <!--trusted app chooser titles-->
   <string name="blocked">Bloquée</string>
   <string name="chooser">Sélecteur</string>

@@ -5,7 +5,7 @@
   <string name="usage">For å bruke dette programmet, klikk på plasseringslenken og velg PlasseringsVern, eller del noe tekst til PlasseringsVern. Velg først PlasseringsVern, som behandler informasjonen, for så å spørre deg igjen med en liste over programmer som godtar en mer sikker plasseringsnettadresse. Eksempel vises ved klikk nedenfor:</string>
   <string name="give_feedback">Vi ønsker tilbakemeldinger! Klikk her for å rapportere noe: https://dev.guardianproject.info/projects/panic/issues</string>
   <string name="force_https">Påtving HTTPS</string>
-  <string name="send_location_to">Send plassering til...</string>
+  <string name="send_location_to">Send plassering til…</string>
   <string name="view_in">vis i %1$s</string>
   <string name="ignoring_unparsable_url">Overser utolkbar nettadresse, prøv et annet program!</string>
   <string name="choose_trusted_map_app">Velg betrodd kartprogram</string>
@@ -17,7 +17,7 @@ PlasseringsVern lekker mye mindre informasjon når det brukes i samråd med Orbo
   <string name="blocked_url">PlasseringsVern blokkerte denne nettadressen!</string>
   <string name="no_geo_map_app">Ingen installert kartprogram som forstår geo: plasserings-nettadresser!</string>
   <!--menu titles-->
-  <string name="about">Om...</string>
+  <string name="about">Om…</string>
   <!--trusted app chooser titles-->
   <string name="blocked">Blokkert</string>
   <string name="chooser">Velger</string>
