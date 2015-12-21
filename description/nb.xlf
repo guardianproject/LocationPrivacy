@@ -1,0 +1,79 @@
+<?xml version="1.0" ?><xliff version="1.2">
+  <file datatype="plaintext" original="source.xlf" source-language="en_US" target-language="nb">
+    <header>
+      <note from="developer">Google places strick character limits on the various text fields in Google Play. The title is 30 characters, the short description is 80 characters, and the rest of the strings, which all go together in the description, are limited to 4000 characters.</note>
+    </header>
+    <body>
+      <trans-unit id="title" maxwidth="30" size-unit="char">
+        <source>Location Privacy</source>
+        <target>PlasseringsVern</target>
+        <note from="developer">This is limited by Google to 30 characters</note>
+      </trans-unit>
+      <trans-unit id="shortdescription" maxwidth="80" size-unit="char">
+        <source>privacy filters for when you are sharing your location</source>
+        <target>personverns-filtre som brukes når du deler din plassering</target>
+        <note from="developer">This is limited by Google to 80 characters</note>
+      </trans-unit>
+      <trans-unit id="intro">
+        <source>LocationPrivacy is not really an app but rather a set of &quot;Intent Filters&quot; for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
+        <target>PlasseringsVern er ikke egentlig et program, men snarere et knippe &quot;hensikts-filtre&quot; ment for de forskjellige måtene man kan dele plassering. Når du deler den informasjonen fra et program, vil PlasseringsVern tilby seg som et valg. Den gjenkjenner usikre måter å dele plassering på, og konverterer dem til mer sikre metoder. Dette betyr for det meste å skrive om nettadresser til å bruke https, og noen ganger 'geo:' Nettadresser som virker på frakoblede oppsett. Plasseringsvern fungerer for det meste ved å lese plasseringen ut av nettadressen direkte. I mange fall må PlasseringsVern faktisk laste noe av nettsiden for å få ut informasjonen.</target>
+      </trans-unit>
+      <trans-unit id="intro2">
+        <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
+        <target>PlasseringsVern kan også tjene som en måte å omdirigere alle plasseringslenker til ditt foretrukne kartprogram. Alle kart i Android kan vise 'geo:'-nettadresser, og PlasseringsVern oversetter mange typer lenker til 'geo:' Nettadresser omfatter Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE og Yandex Maps.</target>
+      </trans-unit>
+      <trans-unit id="intro3">
+        <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
+        <target>Dette ble startet som del av arbeidet rundt T2-panikk, siden deling av plassering så ofte er en del av panikk-programmer. Følg vår framdrift her:</target>
+      </trans-unit>
+      <trans-unit id="blogurl" translate="no">
+        <source>★ https://guardianproject.info/tag/panic</source>
+        <target>★ https://guardianproject.info/tag/panic</target>
+        <note from="developer">Do not translate this.</note>
+      </trans-unit>
+      <trans-unit id="projecturl" translate="no">
+        <source>★ https://dev.guardianproject.info/projects/panic</source>
+        <target>★ https://dev.guardianproject.info/projects/panic</target>
+        <note from="developer">Do not translate this.</note>
+      </trans-unit>
+      <trans-unit id="helptranslate">
+        <source>Don’t see your language? Join us and help translate the app:</source>
+        <target>Mangler ditt språk? Velkommen i våre rekker skal du være, hjelp oss med å oversette programmet:</target>
+      </trans-unit>
+      <trans-unit id="helptranslateurl" translate="no">
+        <source>https://www.transifex.com/projects/p/locationprivacy</source>
+        <target>https://www.transifex.com/projects/p/locationprivacy</target>
+        <note from="developer">Do not translate this.</note>
+      </trans-unit>
+      <trans-unit id="learnmore">
+        <source>***Learn More***</source>
+        <target>***Lær mer***</target>
+      </trans-unit>
+      <trans-unit id="aboutus">
+        <source>★ ABOUT US: Guardian Project is a group of developers that make secure mobile apps and open-source code for a better tomorrow</source>
+        <target>★ OM OSS: Guardian-prosjektet er en gruppe utviklere som lager sikre mobilprogrammer og friprog-løsninger for en bedre fremtid</target>
+      </trans-unit>
+      <trans-unit id="ourwebsite">
+        <source>★ OUR WEBSITE: https://GuardianProject.info</source>
+        <target>★ VÅR NETTSIDE: https://GuardianProject.info</target>
+      </trans-unit>
+      <trans-unit id="ontwitter">
+        <source>★ ON TWITTER: https://twitter.com/guardianproject</source>
+        <target>★ ON TWITTER: https://twitter.com/guardianproject</target>
+      </trans-unit>
+      <trans-unit id="freesoftware">
+        <source>★ FREE SOFTWARE: LocationPrivacy is free software. You can take a look at our source code, or contribute to help make LocationPrivacy even better:</source>
+        <target>★ FREE SOFTWARE: LocationPrivacy is free software. You can take a look at our source code, or contribute to help make LocationPrivacy even better:</target>
+      </trans-unit>
+      <trans-unit id="gitrepo" translate="no">
+        <source>https://github.com/guardianproject/LocationPrivacy</source>
+        <target>https://github.com/guardianproject/LocationPrivacy</target>
+        <note from="developer">Do not translate this.</note>
+      </trans-unit>
+      <trans-unit id="messageus">
+        <source>★ MESSAGE US: Are we missing your favorite feature? Found an annoying bug? Please tell us! We’d love to hear from you. Send us an email: support@guardianproject.info or find us in our chat room https://guardianproject.info/contact</source>
+        <target>★ SEND OSS EN MELDING: Mangler vi din favoritt-funksjon? Funnet en irriterende feil? Vi vil gjerne høre fra deg! Send oss en e-post: support@guardianproject.info eller snakk til oss i vårt sludrerom https://guardianproject.info/contact</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
