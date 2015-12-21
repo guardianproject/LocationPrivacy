@@ -10,17 +10,14 @@
         <note from="developer">This is limited by Google to 30 characters</note>
       </trans-unit>
       <trans-unit id="shortdescription" size-unit="char" maxwidth="80">
-        <source>privacy filters for when you are sharing your location</source>
+        <source>privacy filters for shared location links</source>
         <note from="developer">This is limited by Google to 80 characters</note>
       </trans-unit>
       <trans-unit id="intro">
-        <source>LocationPrivacy is not really an app but rather a set of "Intent Filters" for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
+        <source>Just click on a link that points to a location, and LocationPrivacy will show up as one of the options.  If you select it, then it will use the most private way possible to get the location from that link.  It will then forward the location to the map app that you choose.  LocationPrivacy is not really app but rather a set of "privacy filters" for all of the various ways of sharing location.  When you click on a location link in one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to the most private methods available.  For many links, the location can be read without even going online.  For others, LocationPrivacy reads the location from the webpage via Tor, so that it cannot be tracked to you. Whenever possible, the connection uses HTTPS.</source>
       </trans-unit>
       <trans-unit id="intro2">
-        <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
-      </trans-unit>
-      <trans-unit id="intro3">
-        <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
+        <source>OsmAnd is the recommended map app for private location because it works fully offline and we have audited it.  LocationPrivacy will work with basically all map apps. LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>
