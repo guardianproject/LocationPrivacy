@@ -8,7 +8,6 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import info.guardianproject.netcipher.NetCipher;
@@ -53,7 +52,6 @@ public class GetGeoFromRedirectUri extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         registerReceiver(torStatusReceiver, new IntentFilter(OrbotHelper.ACTION_STATUS));
         if (!OrbotHelper.requestStartTor(this)) {
@@ -76,15 +74,7 @@ public class GetGeoFromRedirectUri extends Activity {
             return;
         }
 
-        Log.i(TAG, "intent action " + intent.getAction());
-        String categories = "";
-        if (intent.getCategories() != null)
-            for (String category : intent.getCategories())
-                categories += " " + category;
-        Log.i(TAG, "intent categories " + categories);
-
         Uri uri = intent.getData();
-        Log.i(TAG, "uri: " + uri);
         if (uri != null && uri.isHierarchical()) {
             new RedirectHeaderAsyncTask(this, uri).execute();
         } else {
@@ -135,8 +125,6 @@ public class GetGeoFromRedirectUri extends Activity {
 
         @Override
         protected void onPostExecute(String uriString) {
-            Log.i(TAG, "onPostExecute header " + uriString);
-
             if (TextUtils.isEmpty(uriString)) {
                 Toast.makeText(GetGeoFromRedirectUri.this, R.string.ignoring_unparsable_url,
                         Toast.LENGTH_SHORT).show();

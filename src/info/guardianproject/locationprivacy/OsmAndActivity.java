@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 import net.osmand.util.GeoPointParserUtil;
 import net.osmand.util.GeoPointParserUtil.GeoParsedPoint;
@@ -15,7 +14,6 @@ public class OsmAndActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
@@ -24,15 +22,7 @@ public class OsmAndActivity extends Activity {
             return;
         }
 
-        Log.i(TAG, "intent action " + intent.getAction());
-        String categories = "";
-        if (intent.getCategories() != null)
-            for (String category : intent.getCategories())
-                categories += " " + category;
-        Log.i(TAG, "intent categories " + categories);
-
         Uri uri = intent.getData();
-        Log.i(TAG, "uri: " + uri);
         if (uri != null) {
             GeoParsedPoint point = GeoPointParserUtil.parse(uri.toString());
             if (point == null) {

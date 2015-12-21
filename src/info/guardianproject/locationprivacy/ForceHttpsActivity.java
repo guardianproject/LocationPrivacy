@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 /**
  * This Activity is for location links that cannot be parsed at all, or
@@ -20,7 +19,6 @@ public class ForceHttpsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
@@ -29,15 +27,7 @@ public class ForceHttpsActivity extends Activity {
             return;
         }
 
-        Log.i(TAG, "intent action " + intent.getAction());
-        String categories = "";
-        if (intent.getCategories() != null)
-            for (String category : intent.getCategories())
-                categories += " " + category;
-        Log.i(TAG, "intent categories " + categories);
-
         Uri uri = intent.getData();
-        Log.i(TAG, "uri: " + uri);
         if (uri != null) {
             Uri.Builder builder = uri.buildUpon();
             builder.scheme("https");

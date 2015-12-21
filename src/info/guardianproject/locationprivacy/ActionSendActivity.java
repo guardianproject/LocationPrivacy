@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.Window;
 import android.widget.TextView;
@@ -156,14 +155,10 @@ public class ActionSendActivity extends AppCompatActivity {
     }
 
     private String getPrivateUrl(String urlString, String scheme, String host) {
-        Log.i(TAG, "found WEB_URL: " + urlString);
-        Log.i(TAG, "scheme: " + scheme);
-        Log.i(TAG, "host: " + host);
         GeoParsedPoint point = GeoPointParserUtil.parse(urlString);
         if (point != null) {
             return point.getGeoUriString();
         } else {
-            Log.i(TAG, "try https");
             if (TextUtils.equals(scheme, "http") && (host != null) && (
                     host.endsWith("glympse.com")
                             || host.endsWith("openstreetmap.org")
@@ -173,7 +168,6 @@ public class ActionSendActivity extends AppCompatActivity {
                             || host.equals("her.is")))
                 return urlString.replaceFirst("http:", "https:");
             else {
-                Log.i(TAG, "but doing nothing");
                 return urlString;
             }
         }

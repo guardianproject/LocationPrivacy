@@ -6,7 +6,6 @@ import android.app.Application;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 public class App extends Application {
@@ -37,7 +36,6 @@ public class App extends Application {
                 // narrow down the choice of Activities to this packageName
                 intent.setPackage(selectedPackageName);
             }
-            Log.i(TAG, "startActivityWithTrustedApp " + intent.getData() + " " + intent.getPackage());
             startActivity(activity, intent);
         }
     }
