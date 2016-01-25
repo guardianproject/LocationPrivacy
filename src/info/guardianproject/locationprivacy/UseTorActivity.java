@@ -39,6 +39,9 @@ public class UseTorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_use_tor);
+
         registerReceiver(torStatusReceiver, new IntentFilter(OrbotHelper.ACTION_STATUS));
         if (!OrbotHelper.requestStartTor(this)) {
             // Orbot needs to be installed, so ignore this request
