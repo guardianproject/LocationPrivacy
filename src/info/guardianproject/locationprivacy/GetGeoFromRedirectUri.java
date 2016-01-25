@@ -27,23 +27,20 @@ import java.net.HttpURLConnection;
 public class GetGeoFromRedirectUri extends UseTorActivity {
     public static final String TAG = "GetGeoFromRedirectUri";
 
-    private Intent intent;
-
     @Override
-    void processIntent() {
-        intent = getIntent();
-        if (intent == null) {
+    boolean processIntent() {
+        if (!super.processIntent()) {
             finish();
-            return;
+            return false;
         }
 
-        Uri uri = intent.getData();
         if (uri != null && uri.isHierarchical()) {
             new RedirectHeaderAsyncTask(this, uri).execute();
         } else {
             Toast.makeText(this, R.string.ignoring_unparsable_url, Toast.LENGTH_SHORT).show();
             finish();
         }
+        return true;
     }
 
     @Override

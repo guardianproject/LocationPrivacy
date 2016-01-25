@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -13,6 +14,9 @@ import info.guardianproject.netcipher.proxy.OrbotHelper;
 
 public class UseTorActivity extends Activity {
     public static final String TAG = "UseTorActivity";
+
+    Intent intent;
+    Uri uri;
 
     /**
      * workaround to prevent crash when Orbot is first installed and not running
@@ -61,7 +65,20 @@ public class UseTorActivity extends Activity {
         }
     }
 
-    void processIntent() {
-        // ignored, must be overridden in the subclasses
+    boolean processIntent() {
+        // must be overridden in the subclasses to do anything useful
+        intent = getIntent();
+        if (intent == null) {
+            return false;
+        }
+        if (TextUtils.equals(OrbotHelper.ACTION_STATUS, intent.getAction())) {
+            // sometimes one of these slips in here, but it should not!
+            return false;
+        }
+        uri = intent.getData();
+        if (uri == null) {
+            return false;
+        }
+        return true;
     }
 }

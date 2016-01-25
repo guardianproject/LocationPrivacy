@@ -38,19 +38,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class GoogleUriActivity extends UseTorActivity {
     public static final String TAG = "GoogleUriActivity";
 
-    private Intent intent;
-
     @Override
-    void processIntent() {
-        intent = getIntent();
-        if (intent == null) {
+    boolean processIntent() {
+        if (!super.processIntent()) {
             finish();
-            return;
-        }
-        Uri uri = intent.getData();
-        if (uri == null) {
-            finish();
-            return;
+            return false;
         }
 
         if (TextUtils.equals(uri.getHost(), "goo.gl")) {
@@ -73,6 +65,7 @@ public class GoogleUriActivity extends UseTorActivity {
                 new GetLatLonAsyncTask(GoogleUriActivity.this, uriString).execute();
             }
         }
+        return true;
     }
 
     @Override
