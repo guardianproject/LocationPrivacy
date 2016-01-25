@@ -11,20 +11,20 @@
       </trans-unit>
       <trans-unit id="shortdescription" maxwidth="80" size-unit="char">
         <source>privacy filters for when you are sharing your location</source>
-        <target>filtros de privacidad para el momento en que esté compartiendo su ubicación</target>
+        <target>filtros de privacidad para cuando esté compartiendo su ubicación</target>
         <note from="developer">This is limited by Google to 80 characters</note>
       </trans-unit>
       <trans-unit id="intro">
         <source>LocationPrivacy is not really an app but rather a set of &quot;Intent Filters&quot; for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
-        <target>LocationPrivacy no es en realidad una aplicación sino un conjunto de &quot;Intent Filters&quot; (filtros de Intents, objetos de petición de acciones entre componentes de Android) para todas las diferentes formas de compartir la ubicación. Cuando comparte la ubicación desde una aplicación, LocationPrivacy se ofrece a si mismo como opción. Luego reconoce métodos inseguros de compartir la ubicación, y después los convierte a métodos más seguros. Esto la mayoría de las veces significa que reescribe las URLs para que usen https, e incluso utiliza URIs `geo:`, que pueden funcionar en instalaciones completamente desconectadas. LocationPrivacy generalmente funciona leyendo la información de ubicación de la propia URL. Para muchas URLs, LocationPrivacy de hecho tiene que cargar algo de la página web para obtener la ubicación.</target>
+        <target>LocationPrivacy no es en realidad una aplicación sino más bien un conjunto de &quot;Intent Filters&quot; (filtros de objetos Intent) entre todas las distintas formas de compartir la ubicación. Cuando comparte la ubicación desde una aplicación, LocationPrivacy se ofrece a si mismo como una opción. Entoces hace un reconocimiento de los métodos no seguros de compartir la ubicación, y los transforma en métodos más seguros. En la mayoría de ocaciones esto significa que reescribe URLs para usar https, e incluso para usar URIs `geo:` que pueden funcionar en configuraciones totalmente desconectadas. La mayoría de las veces LocationPrivacy funciona leyendo la información de ubicación desde la propia URL. Para muchas URLs, LocationPrivacy de hecho tiene que cargar parte de la página web para obtener la ubicación.</target>
       </trans-unit>
       <trans-unit id="intro2">
         <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
-        <target>LocationPrivacy también puede servir como una forma de redirigir todos los enlaces de ubicación hacia su aplicación de mapas favorita. Todas las aplicaciones de mapas en Android puede ver URIs `geo:`, incluyendo: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE o Yandex Maps, y LocationPrivacy convierte muchas clases de enlaces a URIs `geo:`.</target>
+        <target>LocationPrivacy también puede servir como una forma de redirigir todos los enlaces de ubicación a su app de mapas favorita. Todas las aplicaciones de mapas en Android pueden ver URIs `geo:`, incluyendo URIs de: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</target>
       </trans-unit>
       <trans-unit id="intro3">
         <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
-        <target>Esto fue iniciado como parte del trabajo de T2 Panic, ya que compartir la ubicación bastante a menudo es una parte de las aplicaciones de pánico. Siga nuestros progresos aquí:</target>
+        <target>Esto se inició como parte del trabajo T2 Panic, ya que la compartición de la ubicación es demasiado a menudo una parte de las aplicaciones de pánico. Siga nuestros progresos aquí:</target>
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>

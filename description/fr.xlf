@@ -11,20 +11,20 @@
       </trans-unit>
       <trans-unit id="shortdescription" maxwidth="80" size-unit="char">
         <source>privacy filters for when you are sharing your location</source>
-        <target>des filtres de confidentialité lorsque vous partagez votre emplacement</target>
+        <target>filtres de confidentialité lors du partage de votre emplacement</target>
         <note from="developer">This is limited by Google to 80 characters</note>
       </trans-unit>
       <trans-unit id="intro">
         <source>LocationPrivacy is not really an app but rather a set of &quot;Intent Filters&quot; for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
-        <target>GéoConfidentialité n'est pas vraiment une appli, mais plutôt un jeu de « filtres d'intention » pour toutes les différents façons de partager un emplacement. Lorsque vous partagez un emplacement à partir d'une appli, GéoConfidentialité est offert comme option. L'appli reconnaît ensuite les méthodes risquées de partage de l'emplacement et les convertit en des méthodes plus sûres. Ceci signifie principalement que l'appli réécrit les URL pour HTTPS, et même pour utiliser des URL `geo:` qui peuvent fonctionner avec des configurations entièrement hors ligne. GéoConfidentialité fonctionne principalement en lisant les informations d'emplacement de l'URL même. Pour de nombreuses URL, GéoConfidentialité doit en fait charger la page Web afin d'obtenir l'emplacement.</target>
+        <target>GéoConfidentialité n'est pas vraiment une appli, mais plutôt un jeu de « filtres d'intention » pour toutes les différentes façons de partager un emplacement. Lorsque vous partagez votre emplacement à partir d'une appli, GéoConfidentialité est offert comme option. L'appli reconnaît ensuite les méthodes risquées de partage de l'emplacement et les convertit en des méthodes plus sûres. Ceci signifie principalement que l'appli réécrit les URL pour HTTPS, et même pour utiliser des URL `geo:` qui peuvent fonctionner avec des configurations entièrement hors ligne. GéoConfidentialité fonctionne principalement en lisant les informations d'emplacement de l'URL même. Pour de nombreuses URL, GéoConfidentialité doit en fait charger la page Web afin d'obtenir l'emplacement.</target>
       </trans-unit>
       <trans-unit id="intro2">
         <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
-        <target>GéoConfidentialité peut servir à réacheminer tous vos liens d'emplacement vers votre appli de cartes favorite. Toutes les applis de cartes pour Android peuvent voir les URL `geo:`, et GéoConfidentialité convertit de nombreux types de liens en URL `geo:`, incluant les cartes Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</target>
+        <target>GéoConfidentialité peut aussi servir à réacheminer tous vos liens d'emplacement vers votre appli de cartes préférée. Toutes les applis de cartes pour Android peuvent visualiser les URL `geo:`, et GéoConfidentialité convertit de nombreux types de liens en URL `geo:`, incluant les cartes Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</target>
       </trans-unit>
       <trans-unit id="intro3">
         <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
-        <target>Tout ceci a commencé dans le cadre du travail sur T2 Panic, car le partage de l'emplacement fait souvent partie des applis de panique. Suivez notre progression ici :</target>
+        <target>Ceci a commencé dans le cadre du travail sur T2 Panic, car le partage de l'emplacement fait souvent partie des applis d'urgence. Suivez notre progression ici :</target>
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>

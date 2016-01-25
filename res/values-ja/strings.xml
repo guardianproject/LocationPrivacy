@@ -15,6 +15,12 @@
   <string name="install_orbot">Orbot をインストール</string>
   <string name="blocked_url">LocationPrivacy がこの URL をブロックしました!</string>
   <string name="no_geo_map_app">geo: 位置 URI を理解する地図アプリは、インストールされていません!</string>
+  <string name="start_orbot_">Orbot を開始しますか?</string>
+  <string name="you_must_have_orbot">Orbot をインストールして、それを介してプロキシのトラフィックを有効にする必要があります。ダウンロードしますか?</string>
+  <string name="yes">はい</string>
+  <string name="no">いいえ</string>
+  <string name="waiting_for_orbot">Orbot が開始するのを待っています…</string>
+  <string name="orbot_stopped">Orbot は停止しました。場所の検索をキャンセルします!</string>
   <!--menu titles-->
   <string name="about">アプリについて…</string>
   <!--trusted app chooser titles-->

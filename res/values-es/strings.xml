@@ -15,6 +15,12 @@
   <string name="install_orbot">Instalar Orbot</string>
   <string name="blocked_url">¡LocationPrivacy bloqueó esta URL!</string>
   <string name="no_geo_map_app">¡No hay ninguna aplicación de mapa instalada que interprete la URIs de localización geo: !</string>
+  <string name="start_orbot_">¿Iniciar Orbot?</string>
+  <string name="you_must_have_orbot">Ha de tener Orbot instalado y activado para proxyficar tráfico a través de él. ¿Desea descargarlo?</string>
+  <string name="yes">Sí</string>
+  <string name="no">No</string>
+  <string name="waiting_for_orbot">Esperando a que Orbot se inicie…</string>
+  <string name="orbot_stopped">¡Orbot se detuvo, cancelando búsqueda de ubicación!</string>
   <!--menu titles-->
   <string name="about">Acerca de…</string>
   <!--trusted app chooser titles-->

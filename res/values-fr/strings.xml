@@ -15,6 +15,12 @@
   <string name="install_orbot">Installer Orbot</string>
   <string name="blocked_url">GéoConfidentialité a bloqué cette URL !</string>
   <string name="no_geo_map_app">Aucune appli de cartes comprenant les URL d\'emplacement geo: n\'est installée !</string>
+  <string name="start_orbot_">Démarrer Orbot?</string>
+  <string name="you_must_have_orbot">Orbot doit être installé et activé pour relayer le trafic. Voulez-vous le télécharger ?</string>
+  <string name="yes">Oui</string>
+  <string name="no">Non</string>
+  <string name="waiting_for_orbot">Attente du démarrage d\'Orbot…</string>
+  <string name="orbot_stopped">Orbot s\'est arrêté, annulation de la recherche d\'emplacement !</string>
   <!--menu titles-->
   <string name="about">À propos…</string>
   <!--trusted app chooser titles-->
