@@ -16,6 +16,12 @@ PlasseringsVern lekker mye mindre informasjon når det brukes i samråd med Orbo
   <string name="install_orbot">Installer Orbot</string>
   <string name="blocked_url">PlasseringsVern blokkerte denne nettadressen!</string>
   <string name="no_geo_map_app">Ingen installert kartprogram som forstår geo: plasserings-nettadresser!</string>
+  <string name="start_orbot_">Start Orbot?</string>
+  <string name="you_must_have_orbot">Du må ha Orbot installert og aktivert for å mellomtjene trafikk gjennom det. Ønsker du å laste det ned?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nei</string>
+  <string name="waiting_for_orbot">Venter på at Orbot skal starte…</string>
+  <string name="orbot_stopped">Orbot stopped, avbryter tolkning av plasseringslenke!</string>
   <!--menu titles-->
   <string name="about">Om…</string>
   <!--trusted app chooser titles-->
