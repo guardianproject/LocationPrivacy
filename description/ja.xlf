@@ -1,5 +1,5 @@
 <?xml version="1.0" ?><xliff version="1.2">
-  <file datatype="plaintext" original="source.xlf" source-language="en_US">
+  <file datatype="plaintext" original="source.xlf" source-language="en_US" target-language="ja">
     <header>
       <note from="developer">Google places strick character limits on the various text fields in Google Play. The title is 30 characters, the short description is 80 characters, and the rest of the strings, which all go together in the description, are limited to 4000 characters.</note>
     </header>
@@ -10,21 +10,17 @@
         <note from="developer">This is limited by Google to 30 characters</note>
       </trans-unit>
       <trans-unit id="shortdescription" maxwidth="80" size-unit="char">
-        <source>privacy filters for when you are sharing your location</source>
-        <target>あなたが位置を共有する時のプライバシーフィルター</target>
+        <source>privacy filters for shared location links</source>
+        <target>共有した場所のリンクに対するプライバシーフィルター</target>
         <note from="developer">This is limited by Google to 80 characters</note>
       </trans-unit>
       <trans-unit id="intro">
-        <source>LocationPrivacy is not really an app but rather a set of &quot;Intent Filters&quot; for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
-        <target>LocationPrivacy は単独のアプリではなく、位置を共有するさまざまな方法に対して使用する &quot;インテントフィルター&quot; のセットです。あなたがあるアプリで位置を共有する時に、LocationPrivacy はひとつのオプションとして提供されます。その時に、安全ではない位置の共有方法を認識して、より安全な方法に変換します。つまり、主に https を使用するように URL を書き換えます。また、完全にオフラインの設定で動作することができる `geo:` も使用するようにします。 LocationPrivacy は、主に URL 自体から位置情報を読み取ることで動作します。多くの URL に対して、LocationPrivacy が位置を取得するために、ウェブページの一部を実際にロードする必要があります。</target>
+        <source>Just click on a link that points to a location, and LocationPrivacy will show up as one of the options.  If you select it, then it will use the most private way possible to get the location from that link.  It will then forward the location to the map app that you choose.  LocationPrivacy is not really app but rather a set of &quot;privacy filters&quot; for all of the various ways of sharing location.  When you click on a location link in one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to the most private methods available.  For many links, the location can be read without even going online.  For others, LocationPrivacy reads the location from the webpage via Tor, so that it cannot be tracked to you. Whenever possible, the connection uses HTTPS.</source>
+        <target>場所を指すリンクをクリックすると、LocationPrivacyのオプションの1つとして表示されます。それを選択した場合、そのリンクから場所を取得するために可能な限り最もプライベートな方法を使用します。その後、場所を選択した地図アプリに転送します。LocationPrivacyは実際のアプリではなく、場所を共有するさまざまな方法に対して「プライバシーフィルタ」のセットです。あなたがあるアプリ内で場所のリンクをクリックすると、LocationPrivacyはそれ自身をオプションとして提供します。次に、安全ではない場所を共有する方法を認識し、利用可能な最もプライベートな方法に変換します。多くのリンクに対して、オンラインにすることなく場所を読み取ることができます。その他に対して、あなたを追跡することができないように、LocationPrivacyは、Torを介してウェブページから場所を読み取ります。可能な限り、接続はHTTPSを使用します。</target>
       </trans-unit>
       <trans-unit id="intro2">
-        <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
-        <target>LocationPrivacy は、すべての位置のリンクをお好みの地図アプリにリダイレクトするための方法としても役立ちます。Android のすべての地図アプリは `geo:` URI を表示できます。Google マップ、OpenStreetMap、AMAP、百度地図、QQ Map、Nokia HERE、Yandex Maps を含む、LocationPrivacy は多くの種類の `geo:` URI へのリンクを変換します。</target>
-      </trans-unit>
-      <trans-unit id="intro3">
-        <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
-        <target>これは T2 パニック動作の一環として開始されました。位置の共有は多くの場合、パニック アプリの一部です。私たちの進行に従ってください:</target>
+        <source>OsmAnd is the recommended map app for private location because it works fully offline and we have audited it.  LocationPrivacy will work with basically all map apps. LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
+        <target>OsmAndは、完全にオフラインで動作し、私たちが監査しているので、プライベートな場所のために推奨の地図アプリです。LocationPrivacyは基本的にすべての地図アプリで動作します。LocationPrivacyも、すべての場所のリンクをお気に入りの地図アプリへリダイレクトする方法として機能することができます。Androidのすべての地図アプリは `geo:` URI を表示することができます。そしてLocationPrivacyは、Googleマップ、OpenStreetMap、Amap、百度地図、QQ地図、ノキアここ、Yandex地図を服務、多くの種類のリンクを `geo:` URI に変換します。</target>
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>

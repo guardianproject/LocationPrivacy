@@ -6,25 +6,21 @@
     <body>
       <trans-unit id="title" maxwidth="30" size-unit="char">
         <source>Location Privacy</source>
-        <target>GéoConfidentialité</target>
+        <target>Géo confidentialité</target>
         <note from="developer">This is limited by Google to 30 characters</note>
       </trans-unit>
       <trans-unit id="shortdescription" maxwidth="80" size-unit="char">
-        <source>privacy filters for when you are sharing your location</source>
-        <target>filtres de confidentialité lors du partage de votre emplacement</target>
+        <source>privacy filters for shared location links</source>
+        <target>des filtres de confidentialité pour des liens de positionnement partagés</target>
         <note from="developer">This is limited by Google to 80 characters</note>
       </trans-unit>
       <trans-unit id="intro">
-        <source>LocationPrivacy is not really an app but rather a set of &quot;Intent Filters&quot; for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods.  This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</source>
-        <target>GéoConfidentialité n'est pas vraiment une appli, mais plutôt un jeu de « filtres d'intention » pour toutes les différentes façons de partager un emplacement. Lorsque vous partagez votre emplacement à partir d'une appli, GéoConfidentialité est offert comme option. L'appli reconnaît ensuite les méthodes risquées de partage de l'emplacement et les convertit en des méthodes plus sûres. Ceci signifie principalement que l'appli réécrit les URL pour HTTPS, et même pour utiliser des URL `geo:` qui peuvent fonctionner avec des configurations entièrement hors ligne. GéoConfidentialité fonctionne principalement en lisant les informations d'emplacement de l'URL même. Pour de nombreuses URL, GéoConfidentialité doit en fait charger la page Web afin d'obtenir l'emplacement.</target>
+        <source>Just click on a link that points to a location, and LocationPrivacy will show up as one of the options.  If you select it, then it will use the most private way possible to get the location from that link.  It will then forward the location to the map app that you choose.  LocationPrivacy is not really app but rather a set of &quot;privacy filters&quot; for all of the various ways of sharing location.  When you click on a location link in one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to the most private methods available.  For many links, the location can be read without even going online.  For others, LocationPrivacy reads the location from the webpage via Tor, so that it cannot be tracked to you. Whenever possible, the connection uses HTTPS.</source>
+        <target>Cliquez juste sur un lien qui réfère à une position et Géo confidentialité apparaîtra parmi les options. Si vous le choisissez, il utilisera la manière la plus confidentielle possible pour obtenir l’emplacement de ce lien. Il acheminera alors l’emplacement vers l’appli de cartes de votre choix. Géo confidentialité n’est pas vraiment une appli, mais plutôt un jeu de « filtres d’intention » pour toutes les différentes approches de partage de l’emplacement. Lorsque vous partagez l’emplacement à partir d’une appli, Géo confidentialité est offert comme option. Il reconnaît ensuite les méthodes risquées de partage de l’emplacement et les convertit en des méthodes plus sûres. Pour de nombreuses liens, l’emplacement peut être lu sans aller en ligne. Pour les autres, Géo confidentialité lit l’emplacement à partir de la page Web, par Tor, afin que de ne pas pouvoir être suivi à la trace jusqu’à vous. Si possible, la connexion utilise HTTPS.</target>
       </trans-unit>
       <trans-unit id="intro2">
-        <source>LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
-        <target>GéoConfidentialité peut aussi servir à réacheminer tous vos liens d'emplacement vers votre appli de cartes préférée. Toutes les applis de cartes pour Android peuvent visualiser les URL `geo:`, et GéoConfidentialité convertit de nombreux types de liens en URL `geo:`, incluant les cartes Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</target>
-      </trans-unit>
-      <trans-unit id="intro3">
-        <source>This was started as part of the T2 Panic work, since sharing location is so often a part of panic apps.  Follow our progress here:</source>
-        <target>Ceci a commencé dans le cadre du travail sur T2 Panic, car le partage de l'emplacement fait souvent partie des applis d'urgence. Suivez notre progression ici :</target>
+        <source>OsmAnd is the recommended map app for private location because it works fully offline and we have audited it.  LocationPrivacy will work with basically all map apps. LocationPrivacy can also serve as a way to redirect all location links to your favorite mapping app.  All map apps in Android can view `geo:` URIs, and LocationPrivacy converts many kinds of links to `geo:` URIs, including: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</source>
+        <target>OsmAnd est l’appli de cartes recommandée pour un positionnement confidentiel, car elle travaille hors ligne et nous l’avons vérifiée. Géo confidentialité fonctionnera avec essentiellement toutes les applis de cartes. Géo confidentialité peut aussi servir à réacheminer tous vos liens de positionnement vers votre appli de cartes favorite. Toutes les applis de cartes pour Android peuvent voir les URI `geo:`, et Géo confidentialité convertit de nombreux types de liens en URI `geo:`, incluant les cartes Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.</target>
       </trans-unit>
       <trans-unit id="blogurl" translate="no">
         <source>★ https://guardianproject.info/tag/panic</source>
@@ -38,7 +34,7 @@
       </trans-unit>
       <trans-unit id="helptranslate">
         <source>Don’t see your language? Join us and help translate the app:</source>
-        <target>Vous ne voyez pas votre langue ? Rejoignez-nous et aidez-nous à traduire cette appli :</target>
+        <target>Vous ne voyez pas votre langue ? Joignez-vous à nous et aidez-nous à traduire cette appli :</target>
       </trans-unit>
       <trans-unit id="helptranslateurl" translate="no">
         <source>https://www.transifex.com/projects/p/locationprivacy</source>
@@ -51,19 +47,19 @@
       </trans-unit>
       <trans-unit id="aboutus">
         <source>★ ABOUT US: Guardian Project is a group of developers that make secure mobile apps and open-source code for a better tomorrow</source>
-        <target>★ À PROPOS DE NOUS : le Projet Guardian est un groupe de développeurs créant des applis mobiles sécurisées et du code ouvert pour des lendemains meilleurs.</target>
+        <target>★ À PROPOS DE NOUS : le Projet Guardian est un groupe de développeurs concevant des applis mobiles sécurisées et du code ouvert pour des lendemains meilleurs.</target>
       </trans-unit>
       <trans-unit id="ourwebsite">
         <source>★ OUR WEBSITE: https://GuardianProject.info</source>
-        <target>★ NOTRE SITE WEB : https://GuardianProject.info</target>
+        <target>★ NOTRE SITE WEB : https://GuardianProject.info</target>
       </trans-unit>
       <trans-unit id="ontwitter">
         <source>★ ON TWITTER: https://twitter.com/guardianproject</source>
-        <target>★ SUR TWITTER : https://twitter.com/guardianproject</target>
+        <target>★ SUR TWITTER : https://twitter.com/guardianproject</target>
       </trans-unit>
       <trans-unit id="freesoftware">
         <source>★ FREE SOFTWARE: LocationPrivacy is free software. You can take a look at our source code, or contribute to help make LocationPrivacy even better:</source>
-        <target>★ LOGICIEL LIBRE : GéoConfidentialité est un logiciel libre. Vous pouvez regarder notre code source, ou contribuer en aidant à encore améliorer GéoConfidentialité :</target>
+        <target>★ LOGICIEL LIBRE : Géo confidentialité est un logiciel libre. Vous pouvez consulter notre code source et participer afin d’encore améliorer Géo confidentialité :</target>
       </trans-unit>
       <trans-unit id="gitrepo" translate="no">
         <source>https://github.com/guardianproject/LocationPrivacy</source>
@@ -72,7 +68,7 @@
       </trans-unit>
       <trans-unit id="messageus">
         <source>★ MESSAGE US: Are we missing your favorite feature? Found an annoying bug? Please tell us! We’d love to hear from you. Send us an email: support@guardianproject.info or find us in our chat room https://guardianproject.info/contact</source>
-        <target>★ CONTACTEZ-NOUS : votre fonction favorite est absente ? Vous avez trouvé un bogue ennuyant ? Nous aimerions que vous nous en fassiez part ! Envoyez-nous un courriel : support@guardianproject.info ou trouvez-nous dans notre clavardoir https://guardianproject.info/contact</target>
+        <target>★ CONTACTEZ-NOUS : votre fonction favorite est absente ? Vous avez trouvé un bogue ennuyant ? Nous aimerions que vous nous en fassiez part ! Envoyez-nous un courriel : support@guardianproject.info ou trouvez-nous dans notre clavardoir https://guardianproject.info/contact</target>
       </trans-unit>
     </body>
   </file>
