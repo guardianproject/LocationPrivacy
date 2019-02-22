@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+import glob
+import inspect
+import os
+#import xml.dom.minidom
+import xml.etree.ElementTree
+
+project_dirname = os.path.realpath(
+    os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), '..'))
+
+for f in glob.glob(os.path.join(project_dirname, 'description', '*.xlf')):
+    if f == 'source.xlf':
+        locale = 'en-US'
+    else:
+        locale, _ = os.path.splitext(os.path.basename(f))
+    localedir = os.path.join(project_dirname, 'metadata', locale)
+    os.makedirs(localedir, exist_ok=True)
+    root = xml.etree.ElementTree.parse(f)
+    full_description = ""
+    for element in root.iter('trans-unit'):
+        name = element.attrib['id']
+        target = element.find('target')
+        if target is None:
+            continue
+        if name == 'title':
+            path = os.path.join(localedir, 'title.txt')
+            with open(path, 'w', encoding='utf-8') as fp:
+                fp.write(target.text)
+        elif name == 'shortdescription':
+            path = os.path.join(localedir, 'short_description.txt')
+            with open(path, 'w', encoding='utf-8') as fp:
+                fp.write(target.text)
+        else:
+            if target.text.startswith('***'):
+                full_description += '\n'
+            full_description += target.text + '\n'
+    if full_description:
+        path = os.path.join(localedir, 'full_description.txt')
+        with open(path, 'w', encoding='utf-8') as fp:
+            fp.write(full_description)
