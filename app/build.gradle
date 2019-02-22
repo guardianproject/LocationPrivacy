@@ -24,6 +24,13 @@ android {
         versionCode 30
         versionName getVersionName()
     }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
 }
 
 dependencies {
