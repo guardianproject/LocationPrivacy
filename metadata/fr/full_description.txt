@@ -1,0 +1,14 @@
+Cliquez juste sur un lien qui réfère à une position et Géo confidentialité apparaîtra parmi les options. Si vous le choisissez, il utilisera la manière la plus confidentielle possible pour obtenir l’emplacement de ce lien. Il acheminera alors l’emplacement vers l’appli de cartes de votre choix. Géo confidentialité n’est pas vraiment une appli, mais plutôt un jeu de « filtres d’intention » pour toutes les différentes approches de partage de l’emplacement. Lorsque vous partagez l’emplacement à partir d’une appli, Géo confidentialité est offert comme option. Il reconnaît ensuite les méthodes risquées de partage de l’emplacement et les convertit en des méthodes plus sûres. Pour de nombreuses liens, l’emplacement peut être lu sans aller en ligne. Pour les autres, Géo confidentialité lit l’emplacement à partir de la page Web, par Tor, afin que de ne pas pouvoir être suivi à la trace jusqu’à vous. Si possible, la connexion utilise HTTPS.
+OsmAnd est l’appli de cartes recommandée pour un positionnement confidentiel, car elle travaille hors ligne et nous l’avons vérifiée. Géo confidentialité fonctionnera avec essentiellement toutes les applis de cartes. Géo confidentialité peut aussi servir à réacheminer tous vos liens de positionnement vers votre appli de cartes favorite. Toutes les applis de cartes pour Android peuvent voir les URI `geo:`, et Géo confidentialité convertit de nombreux types de liens en URI `geo:`, incluant les cartes Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.
+★ https://guardianproject.info/tag/panic
+★ https://dev.guardianproject.info/projects/panic
+Vous ne voyez pas votre langue ? Joignez-vous à nous et aidez-nous à traduire cette appli :
+https://www.transifex.com/projects/p/locationprivacy
+
+***En apprendre davantage***
+★ À PROPOS DE NOUS : le Projet Guardian est un groupe de développeurs concevant des applis mobiles sécurisées et du code ouvert pour des lendemains meilleurs.
+★ NOTRE SITE WEB : https://GuardianProject.info
+★ SUR TWITTER : https://twitter.com/guardianproject
+★ LOGICIEL LIBRE : Géo confidentialité est un logiciel libre. Vous pouvez consulter notre code source et participer afin d’encore améliorer Géo confidentialité :
+https://github.com/guardianproject/LocationPrivacy
+★ CONTACTEZ-NOUS : votre fonction favorite est absente ? Vous avez trouvé un bogue ennuyant ? Nous aimerions que vous nous en fassiez part ! Envoyez-nous un courriel : support@guardianproject.info ou trouvez-nous dans notre clavardoir https://guardianproject.info/contact
