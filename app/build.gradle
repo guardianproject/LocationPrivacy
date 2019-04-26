@@ -19,10 +19,12 @@ android {
     }
 
     defaultConfig {
+        applicationId "info.guardianproject.locationprivacy"
         minSdkVersion 10
         targetSdkVersion 23
         versionCode 31
         versionName getVersionName()
+        archivesBaseName = "${applicationId}_$versionCode"
     }
 
     buildTypes {
