@@ -1,8 +1,6 @@
 
 build_on_debian:
   image: debian:stretch
-  only:
-    - branches
   variables:
     ANDROID_HOME: /usr/lib/android-sdk
     DEBIAN_FRONTEND: noninteractive
