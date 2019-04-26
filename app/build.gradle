@@ -31,6 +31,17 @@ android {
             versionNameSuffix "-debug"
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError true
+
+        htmlReport true
+        xmlReport false
+        textReport false
+
+        lintConfig file("lint.xml")
+    }
 }
 
 dependencies {
