@@ -3,7 +3,8 @@ OsmAndは、完全にオフラインで動作し、私たちが監査してい�
 ★ https://guardianproject.info/tag/panic
 ★ https://dev.guardianproject.info/projects/panic
 あなたの言語が見つかりませんか? 私たちに参加して、アプリの翻訳を支援してください
-https://www.transifex.com/projects/p/locationprivacy
+https://hosted.weblate.org/projects/guardianproject/locationprivacy/
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata/
 
 ***さらに詳しく***
 ★ 私たちについて: ガーディアン プロジェクトは、より良い明日のために安全なモバイルアプリやオープンソースのコードを作る開発者のグループです

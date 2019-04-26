@@ -3,7 +3,8 @@ OsmAnd es la aplicación de mapa recomendada para la localización privada porqu
 ★ https://guardianproject.info/tag/panic
 ★ https://dev.guardianproject.info/projects/panic
 ¿No ve su idioma? Únase a nosotros y ayude a traducir la app:
-https://www.transifex.com/projects/p/locationprivacy
+https://hosted.weblate.org/projects/guardianproject/locationprivacy/
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata/
 
 ***Conozca más***
 ★ ACERCA DE NOSOTROS: Guardian Project es un grupo de desarrolladores que elaboran aplicaciones móviles seguras y código abierto para un mañana mejor.

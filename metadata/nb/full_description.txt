@@ -3,7 +3,8 @@ OsmAnd er det anbefalte programmet for privat posisjonsdeling fordi det fungerer
 ★ https://guardianproject.info/tag/panic
 ★ https://dev.guardianproject.info/projects/panic
 Mangler ditt språk? Velkommen i våre rekker skal du være, hjelp oss med å oversette programmet:
-https://www.transifex.com/projects/p/locationprivacy
+https://hosted.weblate.org/projects/guardianproject/locationprivacy/
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata/
 
 ***Lær mer***
 ★ OM OSS: Guardian-prosjektet er en gruppe utviklere som lager sikre mobilprogrammer og friprog-løsninger for en bedre fremtid
