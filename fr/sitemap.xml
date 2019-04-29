@@ -7,6 +7,11 @@
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="nb"
                 href="https://guardianproject.github.io/LocationPrivacy/nb/categories/"
                 />
@@ -22,11 +27,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="fr"
                 href="https://guardianproject.github.io/LocationPrivacy/fr/categories/"
                 />
@@ -35,6 +35,11 @@
   <url>
     <loc>https://guardianproject.github.io/LocationPrivacy/fr/</loc>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
@@ -52,11 +57,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="fr"
                 href="https://guardianproject.github.io/LocationPrivacy/fr/"
                 />
@@ -65,6 +65,11 @@
   <url>
     <loc>https://guardianproject.github.io/LocationPrivacy/fr/tags/</loc>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/tags/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
@@ -79,11 +84,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://guardianproject.github.io/LocationPrivacy/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/tags/"
                 />
     <xhtml:link
                 rel="alternate"
