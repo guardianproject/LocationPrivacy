@@ -1,0 +1,15 @@
+Bare klikk på en lenke som henviser til en plassering, og PlasseringsVern vil vise seg som en av valgene. Hvis du velger det, vil det bruke den mest private måten mulig for å innhente plasseringsdata fra den lenken. Det vil så videresende plasseringen til karttjenesten du velger. PlasseringsVern er ikke egentlig et program, men snarere et knippe "personvernsfiltre" for alle de forskjellige måtene å dene en plassering. Det gjenkjenner deretter usikre måter å dele en posisjon, og konverterer dem til den mest sikre metoden tilgjengelig. For mange lenker kan posisjonen leses selv uten å gå på nett. For andre, vil PlasseringsVern lese plasseringen fra en nettside via Tor, slik at den ikke kan spores tilbake til deg. Når mulig vil tilkoblingen bruke HTTPS.
+OsmAnd er det anbefalte programmet for privat posisjonsdeling fordi det fungerer i helt frakoblet modus, og fordi vi har gjennomgått det. PlasseringsVern fungerer med omtrent alle kartprogrammer og kan også tjene som en måte å omdirigere alle plasseringslenker til ditt foretrukne kartprogram. Alle kart i Android kan vise 'geo:'-nettadresser, og PlasseringsVern oversetter mange typer lenker til 'geo:'-nettadresser, deriblandt Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE og Yandex Maps.
+★ https://guardianproject.info/tag/panic
+★ https://dev.guardianproject.info/projects/panic
+Mangler ditt språk? Velkommen i våre rekker skal du være, hjelp oss med å oversette programmet:
+https://hosted.weblate.org/projects/guardianproject/locationprivacy/
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata/
+
+***Lær mer***
+★ OM OSS: Guardian-prosjektet er en gruppe utviklere som lager sikre mobilprogrammer og friprog-løsninger for en bedre fremtid
+★ VÅR NETTSIDE: https://GuardianProject.info
+★ ON TWITTER: https://twitter.com/guardianproject
+★ FREE SOFTWARE: LocationPrivacy is free software. You can take a look at our source code, or contribute to help make LocationPrivacy even better:
+https://github.com/guardianproject/LocationPrivacy
+★ SEND OSS EN MELDING: Mangler vi din favoritt-funksjon? Funnet en irriterende feil? Vi vil gjerne høre fra deg! Send oss en e-post: support@guardianproject.info eller snakk til oss i vårt sludrerom https://guardianproject.info/contact

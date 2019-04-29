@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">PlasseringsVern</string>
+  <string name="app_description">PlasseringsVern er ikke egentlig et program, men snarere et knippe \"hensikts-filtre\" for forskjellige måtene man kan dele plassering på. Når du deler den informasjonen fra et program, vil PlasseringsVern tilby seg som et valg. Den gjenkjenner usikre måter å dele plassering på, og konverterer dem til sikre metoder. Dette betyr for det meste å skrive om nettadresser til å bruke https, og noen ganger \'geo:\' Nettadresser som virker på frakoblede oppsett. Plasseringsvern fungerer for det meste ved å lese plasseringen ut av nettadressen direkte. I mange fall må PlasseringsVern faktisk laste noe av nettsiden for å få ut informasjonen.</string>
+  <string name="usage">For å bruke dette programmet, klikk på plasseringslenken og velg PlasseringsVern, eller del noe tekst til PlasseringsVern. Velg først PlasseringsVern, som behandler informasjonen, for så å spørre deg igjen med en liste over programmer som godtar en mer sikker plasseringsnettadresse. Eksempel vises ved klikk nedenfor:</string>
+  <string name="give_feedback">Vi ønsker tilbakemeldinger! Klikk her for å rapportere noe: https://dev.guardianproject.info/projects/panic/issues</string>
+  <string name="force_https">Påtving HTTPS</string>
+  <string name="send_location_to">Send plassering til…</string>
+  <string name="view_in">vis i %1$s</string>
+  <string name="ignoring_unparsable_url">Overser utolkbar nettadresse, prøv et annet program!</string>
+  <string name="choose_trusted_map_app">Velg betrodd kartprogram</string>
+  <string name="recommended_app">OsmAnd er anbefalt som privat kartprogram, siden det lar seg bruke helt frakoblet. Det betyr at det ikke lekker din private data til noe på din enhet. Det er også fri programvare.</string>
+  <string name="install_osmand">Installer OsmAnd</string>
+  <string name="why_orbot">Orbot gjør bruk av Tor, som anonymiserer din nettverkstrafikk.
+PlasseringsVern lekker mye mindre informasjon når det brukes i samråd med Orbot, som er fri programvare.</string>
+  <string name="install_orbot">Installer Orbot</string>
+  <string name="blocked_url">PlasseringsVern blokkerte denne nettadressen!</string>
+  <string name="no_geo_map_app">Ingen installert kartprogram som forstår geo: plasserings-nettadresser!</string>
+  <string name="start_orbot_">Start Orbot?</string>
+  <string name="you_must_have_orbot">Du må ha Orbot installert og aktivert for å mellomtjene trafikk gjennom det. Ønsker du å laste det ned?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nei</string>
+  <string name="waiting_for_orbot">Venter på at Orbot skal starte…</string>
+  <string name="orbot_stopped">Orbot stopped, avbryter tolkning av plasseringslenke!</string>
+  <!--menu titles-->
+  <string name="about">Om…</string>
+  <!--trusted app chooser titles-->
+  <string name="blocked">Blokkert</string>
+  <string name="chooser">Velger</string>
+</resources>

@@ -1,0 +1,10 @@
+#!/bin/bash -x
+
+# Fix TypographyEllipsis programmatically
+sed -i 's/\.\.\./…/g' app/src/main/res/values*/*.xml
+
+# Replace "--" with an "em dash" character
+sed -i 's,\(\>[^\<]*\)--\([^\>]\),\1—\2,g' app/src/main/res/values*/*.xml
+
+# make sure apostrophes in strings are escaped
+sed -i "s,\(>[^<]*[^\\]\)',\1\\\\',gp" app/src/main/res/values*/*.xml

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">LocationPrivacy</string>
+  <string name="app_description">LocationPrivacy realmente no es una aplicación sino más bien un conjunto de \"Intent Filters\" (filtros de Intents, objetos de petición de acciones entre componentes de Android) para todas las distintas maneras de compartir la ubicación. Cuando comparte la ubicación desde una aplicación, LocationPrivacy se ofrece a si mismo como una opción. Después reconoce los métodos inseguros de compartir ubicación, y luego los convierte a métodos más seguros. En la mayoría de las ocasiones esto significa que reescribe las URLs para usar https, e incluso para usar URIs `geo:`, que pueden funcionar sobre configuraciones completamente desconectadas. La mayoría de las veces LocationPrivacy funciona leyendo la información de ubicación desde la propia URL. Para muchas URLs, en realidad LocationPrivacy tiene que cargar algún elemento de la página web para obtener la ubicación.</string>
+  <string name="usage">Para usar esta aplicación, haga clic sobre un enlace de ubicación y escoja LocationPrivacy, o comparta algún texto con LocationPrivacy. Primero seleccione LocationPrivacy, este procesará la información, luego se dirigirá otra vez a usted con una nueva lista de aplicaciones que aceptan la resultante URL de ubicación de mayor privacidad. Haga clic debajo para ver un ejemplo:</string>
+  <string name="give_feedback">¡Queremos sus comentarios! Haga clic debajo para consignar un asunto: https://dev.guardianproject.info/projects/panic/issues</string>
+  <string name="force_https">Forzar HTTPS</string>
+  <string name="send_location_to">Enviar ubicación a…</string>
+  <string name="view_in">ver en %1$s</string>
+  <string name="ignoring_unparsable_url">¡Ignorando URL no procesable, pruebe con una aplicación distinta!</string>
+  <string name="choose_trusted_map_app">Elija una aplicación de mapa de confianza</string>
+  <string name="recommended_app">OsmAnd está recomendada como una aplicación de mapa privada que proporciona operatividad completa en desconexión. Eso significa que evitará que se filtre su información privada a nadie fuera de su dispositivo. También es software libre.</string>
+  <string name="install_osmand">Instalar OsmAnd</string>
+  <string name="why_orbot">Orbot proporciona Tor, que anonimiza su tráfico de red. LocationPrivacy logrará que se filtre mucha menos información cuando funcione junto con Orbot. Es software libre.</string>
+  <string name="install_orbot">Instalar Orbot</string>
+  <string name="blocked_url">¡LocationPrivacy bloqueó esta URL!</string>
+  <string name="no_geo_map_app">¡No hay ninguna aplicación de mapa instalada que interprete la URIs de localización geo: !</string>
+  <string name="start_orbot_">¿Iniciar Orbot?</string>
+  <string name="you_must_have_orbot">Ha de tener Orbot instalado y activado para proxyficar tráfico a través de él. ¿Desea descargarlo?</string>
+  <string name="yes">Sí</string>
+  <string name="no">No</string>
+  <string name="waiting_for_orbot">Esperando a que Orbot se inicie…</string>
+  <string name="orbot_stopped">¡Orbot se detuvo, cancelando búsqueda de ubicación!</string>
+  <!--menu titles-->
+  <string name="about">Acerca de…</string>
+  <!--trusted app chooser titles-->
+  <string name="blocked">Bloqueado</string>
+  <string name="chooser">Selector</string>
+</resources>

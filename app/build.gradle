@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+/* gets the version name from the latest Git tag */
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags', '--always'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0"
+
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
+    defaultConfig {
+        applicationId "info.guardianproject.locationprivacy"
+        minSdkVersion 10
+        targetSdkVersion 23
+        versionCode 31
+        versionName getVersionName()
+        archivesBaseName = "${applicationId}_$versionCode"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError true
+
+        htmlReport true
+        xmlReport false
+        textReport false
+
+        lintConfig file("lint.xml")
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'info.guardianproject.netcipher:netcipher:2.0.0-beta1'
+}

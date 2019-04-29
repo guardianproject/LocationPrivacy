@@ -1,0 +1,17 @@
+*~
+
+# auto-generated files from Android builds
+/.gradle/
+/.idea/
+/app/build/
+/*.properties
+*.iml
+
+# ignore fdroid build dirs
+/build/
+/tmp/
+/unsigned/
+
+# Hugo
+/public/
+/resources/

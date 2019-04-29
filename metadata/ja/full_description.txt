@@ -1,0 +1,15 @@
+場所を指すリンクをクリックすると、LocationPrivacyのオプションの1つとして表示されます。それを選択した場合、そのリンクから場所を取得するために可能な限り最もプライベートな方法を使用します。その後、場所を選択した地図アプリに転送します。LocationPrivacyは実際のアプリではなく、場所を共有するさまざまな方法に対して「プライバシーフィルタ」のセットです。あなたがあるアプリ内で場所のリンクをクリックすると、LocationPrivacyはそれ自身をオプションとして提供します。次に、安全ではない場所を共有する方法を認識し、利用可能な最もプライベートな方法に変換します。多くのリンクに対して、オンラインにすることなく場所を読み取ることができます。その他に対して、あなたを追跡することができないように、LocationPrivacyは、Torを介してウェブページから場所を読み取ります。可能な限り、接続はHTTPSを使用します。
+OsmAndは、完全にオフラインで動作し、私たちが監査しているので、プライベートな場所のために推奨の地図アプリです。LocationPrivacyは基本的にすべての地図アプリで動作します。LocationPrivacyも、すべての場所のリンクをお気に入りの地図アプリへリダイレクトする方法として機能することができます。Androidのすべての地図アプリは `geo:` URI を表示することができます。そしてLocationPrivacyは、Googleマップ、OpenStreetMap、Amap、百度地図、QQ地図、ノキアここ、Yandex地図を服務、多くの種類のリンクを `geo:` URI に変換します。
+★ https://guardianproject.info/tag/panic
+★ https://dev.guardianproject.info/projects/panic
+あなたの言語が見つかりませんか? 私たちに参加して、アプリの翻訳を支援してください
+https://hosted.weblate.org/projects/guardianproject/locationprivacy/
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata/
+
+***さらに詳しく***
+★ 私たちについて: ガーディアン プロジェクトは、より良い明日のために安全なモバイルアプリやオープンソースのコードを作る開発者のグループです
+★ WEBサイト: https://GuardianProject.info
+★ Twitter: https://twitter.com/guardianproject
+★ フリーソフトウェア: LocationPrivacy はフリーソフトウェアです。私たちのソースコードを見ることや、LocationPrivacy をさらに良くするために支援して貢献することができます:
+https://github.com/guardianproject/LocationPrivacy
+★ 私たちにメッセージをお送りください: あなたのお気に入りの機能が不足していませんか? 迷惑なバグを発見されましたか? 私たちまでお知らせください! あなたの声をお聞かせください。私たちにメールをお送りください: support@guardianproject.info またはチャットルーム https://guardianproject.info/contact で私たちを検索してください

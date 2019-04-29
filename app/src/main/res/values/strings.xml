@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="app_name">LocationPrivacy</string>
+    <string name="app_description">LocationPrivacy is not really app but rather a set of "Intent Filters" for all of the various ways of sharing location.  When you share location from one app, LocationPrivacy offers itself as an option.  It then recognizes insecure methods of sharing location, and then converts them to more secure methods. This mostly means that it rewrites URLs to use https, and even to use `geo:` URIs, which can work on fully offline setups.  LocationPrivacy mostly works by reading the location information from the URL itself.  For many URLs, LocationPrivacy must actually load some of the webpage in order to get the location.</string>
+    <string name="usage">To use this app, click on a location link and choose LocationPrivacy, or share some text to LocationPrivacy.  First select LocationPrivacy, it will process the info, then prompt you again with a new list of apps that accept the more private location URL. Click below for an example:</string>
+    <string name="give_feedback">We want your feedback! Click here to file an issue: https://dev.guardianproject.info/projects/panic/issues</string>
+    <string name="force_https">Force HTTPS</string>
+    <string name="send_location_to">Send location to…</string>
+    <string name="view_in">view in %1$s</string>
+    <string name="ignoring_unparsable_url">Ignoring unparsable URL, try a different app!</string>
+    <string name="choose_trusted_map_app">Choose trusted map app</string>
+    <string name="recommended_app">OsmAnd is recommended as a private map app that provides complete, offline operation. That means it won\'t leak your private info to anything off of your device. It is also Free Software.</string>
+    <string name="install_osmand">Install OsmAnd</string>
+    <string name="why_orbot">Orbot provides Tor, which anonymizes your network traffic.  LocationPrivacy will leak a lot less information when it works together with Orbot.  It is Free Software.</string>
+    <string name="install_orbot">Install Orbot</string>
+    <string name="blocked_url">LocationPrivacy blocked this URL!</string>
+    <string name="no_geo_map_app">No installed map app that understands geo: location URIs!</string>
+    <string name="start_orbot_">Start Orbot?</string>
+    <string name="you_must_have_orbot">You must have Orbot installed and activated to proxy traffic through it. Would you like to download it?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="waiting_for_orbot">Waiting for Orbot to start…</string>
+    <string name="orbot_stopped">Orbot stopped, cancelling location lookup!</string>
+
+    <!-- menu titles -->
+    <string name="about">About…</string>
+
+    <!-- trusted app chooser titles -->
+    <string name="blocked">Blocked</string>
+    <string name="chooser">Chooser</string>
+
+</resources>
