@@ -1,0 +1,35 @@
+title: Location Privacy
+theme: fastlane-hugo-theme
+baseURL: http://localhost:1313
+
+contentDir: metadata
+
+staticDir:
+  - app/src/main/res
+
+blackfriday:
+  extensions:
+    - hardLineBreak
+
+params:
+  fastlaneDir: metadata
+  fdroid: info.guardianproject.locationprivacy
+  googlePlay: info.guardianproject.locationprivacy
+  github: guardianproject/locationprivacy
+  featureGraphicOverlay: true
+  section_headings_color: "#f00"
+  header_heading_color: "#f00"
+
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: true
+languages:
+  en:
+    languageCode: en-US
+  es:
+    languageCode: es
+  fr:
+    languageCode: fr
+  ja:
+    languageCode: ja
+  nb:
+    languageCode: nb

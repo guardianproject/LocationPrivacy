@@ -1,5 +1,10 @@
 
+stages:
+  - test
+  - deploy
+
 build_on_debian:
+  stage: test
   image: debian:stretch
   except:
     - gh-pages
@@ -33,3 +38,31 @@ build_on_debian:
     when: on_success
   after_script:
     - echo "Download debug artifacts from https://gitlab.com/${CI_PROJECT_PATH}/-/jobs"
+
+.website-template: &website-template
+  image: debian:buster-slim
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+  script:
+    - apt-get update
+    - apt-get -qy install --no-install-recommends hugo
+    - sed -i "s,^baseURL\x3a.*,baseURL\x3a https://${CI_PROJECT_NAMESPACE}.gitlab.io/${CI_PROJECT_NAME}/," config.yaml
+    - hugo
+    - test -e public/es/index.html
+
+website:
+  stage: test
+  except:
+    - master
+    - gh-pages
+  <<: *website-template
+
+pages:
+  stage: deploy
+  only:
+    - master
+  artifacts:
+    paths:
+      - public
+  <<: *website-template
+
