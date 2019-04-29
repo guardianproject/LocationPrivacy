@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>https://guardianproject.github.io/LocationPrivacy/nb/sitemap.xml</loc>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://guardianproject.github.io/LocationPrivacy/en/sitemap.xml</loc>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://guardianproject.github.io/LocationPrivacy/es/sitemap.xml</loc>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://guardianproject.github.io/LocationPrivacy/fr/sitemap.xml</loc>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://guardianproject.github.io/LocationPrivacy/ja/sitemap.xml</loc>
+		
+	</sitemap>
+	
+</sitemapindex>
