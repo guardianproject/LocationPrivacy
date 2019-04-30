@@ -7,16 +7,6 @@
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="https://guardianproject.github.io/LocationPrivacy/fr/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://guardianproject.github.io/LocationPrivacy/en/categories/"
                 />
@@ -24,6 +14,16 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://guardianproject.github.io/LocationPrivacy/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://guardianproject.github.io/LocationPrivacy/fr/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -37,16 +37,6 @@
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="https://guardianproject.github.io/LocationPrivacy/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://guardianproject.github.io/LocationPrivacy/en/"
                 />
@@ -54,6 +44,16 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://guardianproject.github.io/LocationPrivacy/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://guardianproject.github.io/LocationPrivacy/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -67,16 +67,6 @@
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="https://guardianproject.github.io/LocationPrivacy/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://guardianproject.github.io/LocationPrivacy/ja/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="https://guardianproject.github.io/LocationPrivacy/en/tags/"
                 />
@@ -84,6 +74,16 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://guardianproject.github.io/LocationPrivacy/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://guardianproject.github.io/LocationPrivacy/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://guardianproject.github.io/LocationPrivacy/ja/tags/"
                 />
     <xhtml:link
                 rel="alternate"

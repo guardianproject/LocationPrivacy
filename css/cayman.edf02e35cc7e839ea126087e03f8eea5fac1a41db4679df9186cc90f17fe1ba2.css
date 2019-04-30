@@ -7,7 +7,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #303639; }
 
 a {
   color: #1e6bb8;
@@ -45,7 +45,7 @@ a {
       font-size: 0.9rem; } }
 
 .feature-graphic {
-  background-color: #159957;
+  background-color: #fff;
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -53,18 +53,13 @@ a {
   padding-top: 48.83%;
   /* (img-height / img-width * container-width) */
   /* (500 / 1024 * 100) */
-  background-image: url(../en-US/images/featureGraphic.png), linear-gradient(120deg, #155799, #159957); }
+  background-image: url(../en-US/images/featureGraphic.png), linear-gradient(120deg, #fff, #fff); }
 
 .page-header {
-  size: contain;
-  color: #000;
-  text-align: center; }
-  @media screen and (min-width: 64em) {
-    .page-header {
-      padding: 5rem 6rem; } }
-  @media screen and (max-width: 42em) {
-    .page-header {
-      padding: 2rem 1rem; } }
+  color: #101216;
+  text-align: center;
+  background-color: #fff;
+  width: 100%; }
 
 .project-name {
   margin-top: 0;
@@ -122,7 +117,7 @@ a {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    color: #0091EA; }
+    color: #101216; }
   .main-content p {
     margin-bottom: 1em; }
   .main-content code {
