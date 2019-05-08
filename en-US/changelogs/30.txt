@@ -1,0 +1,1 @@
+now with Tor support for getting location from webpages privately, and translated to Deutsch, español, français, norsk.

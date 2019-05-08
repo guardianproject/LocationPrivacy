@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LocationPrivacy</string>
+    <string name="force_https">Forçar HTTPS</string>
+    <string name="view_in">exibir em %1$s</string>
+    <string name="install_osmand">Instalar OsmAnd</string>
+    <string name="install_orbot">Instalar Orbot</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="waiting_for_orbot">Esperando que o Orbot inicie…</string>
+    <string name="orbot_stopped">Orbot parou, cancelando a busca da localização!</string>
+    <string name="about">Acerca…</string>
+    <string name="blocked">Bloqueado</string>
+</resources>
