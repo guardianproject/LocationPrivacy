@@ -26,10 +26,10 @@ languages:
   en:
     languageCode: en-US
   es:
-    languageCode: es
+    languageCode: es-ES
   fr:
-    languageCode: fr
+    languageCode: fr-FR
   ja:
-    languageCode: ja
+    languageCode: ja-JP
   nb:
-    languageCode: nb
+    languageCode: no-NO
