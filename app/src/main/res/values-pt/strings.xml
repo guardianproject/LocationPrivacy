@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LocationPrivacy</string>
-    <string name="app_description">O LocationPrivacy não é realmente uma aplicação, mas sim um conjunto de Filtros de Intenção para as várias formas de partilhar uma localização. Quando partilha uma localização de uma aplicação, o LocationPrivacy aparece como uma opção. Então reconhece formas inseguras de partilhar a localização e então converte a localização em métodos mais seguros. Geralmente isto significa que reescreve o URL para o tipo https e até mesmo usar URIS `geo:` que podem funcionar em configurações desligadas da Internet. O LocationPrivacy funciona, lendo a informação da localização no próprio URL. Para muitos URLs, o LocationPrivacy tem realmente de carregar a página web por forma a obter a localização.</string>
+    <string name="app_description">O LocationPrivacy não é realmente uma app, mas sim um conjunto de Filtros de Intenção para as várias formas de partilhar uma localização. Quando partilha uma localização de uma aplicação, o LocationPrivacy aparece como uma opção. Então reconhece formas inseguras de partilhar a localização e então converte a localização em métodos mais seguros. Geralmente isto significa que reescreve o URL para o tipo https e até mesmo usar URIS `geo:` que podem funcionar em configurações desligadas da Internet. O LocationPrivacy funciona, lendo a informação da localização no próprio URL. Para muitos URLs, o LocationPrivacy tem realmente de carregar a página web por forma a obter a localização.</string>
     <string name="usage">Para usar esta aplicação, clique num link de uma localização e escolha a aplicação LocationPrivacy, ou partilhe algum texto com a aplicação LocationPrivacy. Primeiro selecione a LocationPrivacy, esta irá processar a informação e então perguntar-lhe de novo que aplicação quer usar de uma lista de aplicações que aceitam um link de uma localização mais privado. Clique a seguir para fazer um teste:</string>
     <string name="give_feedback">Queremos a sua opinião! Clique aqui para reportar um problema: https://dev.guardianproject.info/projects/panic/issues</string>
     <string name="force_https">Forçar HTTPS</string>
@@ -9,12 +9,12 @@
     <string name="view_in">ver em %1$s</string>
     <string name="ignoring_unparsable_url">A ignorar URL não processável, tente uma aplicação diferente!</string>
     <string name="choose_trusted_map_app">Escolher aplicação de mapas de confiança</string>
-    <string name="recommended_app">"O OsmAnd  é recomendado como uma aplicação de mapas que funciona desligada da Internet. Isso significa que esta não irá vazar informação privada. Também é um programa livre."</string>
+    <string name="recommended_app">O OsmAnd é recomendado como uma app de mapas que funciona desligada da Internet. Isso significa que esta não irá vazar informação privada. Também é um programa livre.</string>
     <string name="install_osmand">Instalar o OsmAnd</string>
     <string name="why_orbot">Orbot proporciona o aceso à rede Tor, que torna o seu tráfego na rede anónimo. LocationPrivacy irá vazar muito menos informação quando funciona com o Orbot. É um programa livre.</string>
     <string name="install_orbot">Instalar o Orbot</string>
     <string name="blocked_url">LocationPrivacy bloqueou este URL!</string>
-    <string name="no_geo_map_app">Nenhuma aplicação instalada reconhece os URIs do tipo geo: !</string>
+    <string name="no_geo_map_app">Nenhuma app instalada reconhece os URIs do tipo geo: !</string>
     <string name="start_orbot_">Iniciar o Orbot\?</string>
     <string name="you_must_have_orbot">Tem de ter o Orbot instalado e ativado passar o tráfego por ele. Quer descarregá-lo\?</string>
     <string name="yes">Sim</string>

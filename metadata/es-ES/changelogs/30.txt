@@ -1,0 +1,1 @@
+ahora con soporte de Tor para obtener ubicación desde páginas web de forma privada. Traducido al alemán, español, francés y noruego Bokmål.

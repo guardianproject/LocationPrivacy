@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose_trusted_map_app">Wybierz zaufaną aplikację do map</string>
+    <string name="ignoring_unparsable_url">Ignorując niespotykany adres URL, spróbuj innej aplikacji!</string>
+    <string name="view_in">wyświetl w %1$s</string>
+    <string name="send_location_to">Wyślij lokalizację do…</string>
+    <string name="force_https">Wymuś HTTPS</string>
+    <string name="give_feedback">Potrzebujemy Twojej opinii! Kliknij tutaj, aby zgłosić problem: https://dev.guardianproject.info/projects/panic/issues</string>
+    <string name="usage">Aby skorzystać z tej aplikacji, kliknij link lokalizacji i wybierz LocationPrivacy lub udostępnij tekst w LocationPrivacy. Najpierw wybierz opcję LocationPrivacy, przetworzy informacje, a następnie ponownie wyświetli monit o nową listę aplikacji, które akceptują bardziej prywatny adres URL lokalizacji. Kliknij poniżej, aby zobaczyć przykład:</string>
+    <string name="app_name">LocationPrivacy</string>
+    <string name="app_description">LocationPrivacy nie jest tak naprawdę aplikacją, ale raczej zestawem filtrów intencji dla wszystkich różnych sposobów udostępniania lokalizacji. Gdy udostępniasz lokalizację z jednej aplikacji, LocationPrivacy oferuje się jako opcja. Następnie rozpoznaje niebezpieczne metody udostępniania lokalizacji, a następnie przekształca je w bezpieczniejsze metody. Oznacza to głównie, że przepisuje adresy URL, aby używać https, a nawet URI `geo:`, które mogą działać w konfiguracjach w trybie offline. LocationPrivacy działa głównie poprzez odczytywanie informacji o lokalizacji z samego adresu URL. W przypadku wielu adresów URL, LocationPrivacy musi faktycznie załadować część strony, aby uzyskać lokalizację.</string>
+    <string name="chooser">Wybór</string>
+    <string name="blocked">Zablokowano</string>
+    <string name="about">O Location Privacy…</string>
+    <string name="orbot_stopped">Orbot zatrzymany, anulowanie wyszukiwania lokalizacji!</string>
+    <string name="waiting_for_orbot">Oczekiwanie na uruchomienie aplikacji Orbot…</string>
+    <string name="no">Nie</string>
+    <string name="yes">Tak</string>
+    <string name="you_must_have_orbot">Musisz mieć zainstalowany i aktywowany Orbot, aby móc przez niego obsługiwać ruch proxy. Chcesz go pobrać\?</string>
+    <string name="start_orbot_">Uruchomić Orbot\?</string>
+    <string name="no_geo_map_app">Brak zainstalowanej aplikacji mapowej, która rozumie geo: lokalizacja URIs!</string>
+    <string name="blocked_url">LocationPrivacy zablokował ten adres URL!</string>
+    <string name="install_orbot">Zainstaluj Orbot</string>
+    <string name="why_orbot">Aplikacja Orbot zapewnia Tor, który zapewnia anonimowość twojego ruchu sieciowego. LokalizacjaPrywatność wycieknie o wiele mniej informacji, jeśli będzie współpracować z Orbotem. To jest wolne oprogramowanie.</string>
+    <string name="install_osmand">Zainstaluj OsmAnd</string>
+    <string name="recommended_app">OsmAnd jest zalecany jako prywatna aplikacja do map, która zapewnia pełną obsługę offline. Oznacza to, że nie spowoduje to wycieku twoich prywatnych informacji do niczego poza twoim urządzeniem. To także wolne oprogramowanie.</string>
+</resources>

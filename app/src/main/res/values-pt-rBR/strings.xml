@@ -9,6 +9,19 @@
     <string name="no">Não</string>
     <string name="waiting_for_orbot">Esperando que o Orbot inicie…</string>
     <string name="orbot_stopped">Orbot parou, cancelando a busca da localização!</string>
-    <string name="about">Acerca…</string>
+    <string name="about">Sobre…</string>
     <string name="blocked">Bloqueado</string>
+    <string name="app_description">LocationPrivacy não é de fato um app mas sim uma série de filtros de Intenções para todas as várias formas de compartilhar sua localização. Quando você compartilha a sua localidade através de um aplicativo, LocationPrivacy se oferece como uma opção. Ele então reconhece os métodos inseguros de compartilhar localizações, e depois os converte para formas mais seguras. Isto na maioria das vezes quer dizer que ele reescreve URLs para usar `https`, e até para usar URLs `geo:`, que podem trabalhar em ambientes completamente offline. LocationPrivacy muitas vezes funciona lendoma informação da localidade pela própria URL. Para muitas URLs, LocationPrivacy precisa baixar um pouco da página da web para poder conseguir a localidade.</string>
+    <string name="usage">Para usar o aplicativo, clique em um link de localização e escolha LocationPrivacy, ou compartilhe um pouco se texto para LocationPrivacy. Primeiro selecione LocationPrivacy, que vai processar a informação, e então te chamar denovo com uma nova lista de aplicativos que aceitam a URL de localização mais privada. Clique abaixo para um exemplo:</string>
+    <string name="give_feedback">Queremos a sua opinião! Clique aqui para relatar um problema: https://dev.guardianproject.info/projects/panic/issues</string>
+    <string name="send_location_to">Enviar localização para…</string>
+    <string name="ignoring_unparsable_url">Ignorando URL não processável, tente uma aplicação diferente!</string>
+    <string name="choose_trusted_map_app">Escolha um aplicativo de mapas de confiança</string>
+    <string name="recommended_app">OsmAnd é recomendado como um aplicativo de mapas privado que oferece uma operação completa e offline. Isto significa que isto não irá vazar suas informações privadas para nenhum lugar fora do seu aparelho. E isso também é Software Livre.</string>
+    <string name="why_orbot">Orbot oferece Tor, que anonimiza seu tráfego de rede. LocationPrivacy irá vazar bem menos informações quando funciona junto com Orbot. Isto também é Software Livre.</string>
+    <string name="blocked_url">LocationPrivacy bloqueou esta URL!</string>
+    <string name="no_geo_map_app">Nenhuma aplicação de mapas que entende URLs de localização do tipo geo: !</string>
+    <string name="start_orbot_">Iniciar o Orbot\?</string>
+    <string name="you_must_have_orbot">Você precisa ter o Orbot instalado e ativado para passar tráfego indireto sobre isto. Você gostaria de baixá-lo\?</string>
+    <string name="chooser">Seletor</string>
 </resources>

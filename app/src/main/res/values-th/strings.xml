@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_description">LocationPrivacy ไม่ใช่แอปจริงๆ แต่เป็นชุดของ Intent Filters สำหรับวิธีการแชร์ตำแหน่งต่างๆ เมื่อคุณแชร์ตำแหน่งจากแอพเดียว LocationPrivacy จะเสนอตัวเลือกให้ตัวเอง จากนั้นระบบจะจดจำวิธีการแชร์ตำแหน่งที่ไม่ปลอดภัยจากนั้นแปลงเป็นวิธีการที่ปลอดภัยยิ่งขึ้น ซึ่งส่วนใหญ่หมายความว่าจะเขียน URL ใหม่เพื่อใช้ https และแม้กระทั่งใช้ `` geo: `` URI ซึ่งสามารถทำงานกับการตั้งค่าออฟไลน์ได้อย่างสมบูรณ์ LocationPrivacy ส่วนใหญ่ทำงานโดยการอ่านข้อมูลตำแหน่งจาก URL เอง สำหรับ URL จำนวนมาก LocationPrivacy ต้องโหลดหน้าเว็บบางหน้าเพื่อให้ได้ตำแหน่ง</string>
+    <string name="app_name">LocationPrivacy</string>
+</resources>

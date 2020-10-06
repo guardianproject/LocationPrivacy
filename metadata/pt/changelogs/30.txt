@@ -1,0 +1,1 @@
+agora com suporte para o Tor para obter a localização de páginas da web privadamente. Traduzido para o alemão, espanhol, francês e norueguês Bokmål.

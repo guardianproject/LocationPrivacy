@@ -1,0 +1,20 @@
+Klicken Sie einfach auf einen Link, der auf einen Standort zeigt und LocationPrivacy wird als eine der Optionen angezeigt. Wenn Sie es auswählen, dann wird es die bestmögliche datengeschützte Methode nutzen, um den Standort von diesem Link zu erhalten. Der Standort wird dann an die von Ihnen gewählte Karten-App weitergeleitet. LocationPrivacy ist keine wirkliche App, sondern eher eine Reihe von "Datenschutzfiltern" für all die verschiedenen Verfahren der Standortfreigabe. Wenn Sie in einer App auf einen Standortverweis klicken, bietet sich LocationPrivacy als Option an. Es erkennt dann unsichere Methoden der Standortfreigabe und konvertiert sie dann in die am meisten datengeschützten verfügbaren Methoden. Bei vielen Links kann der Standort abgefragt werden, ohne überhaupt online zu sein. Bei anderen fragt LocationPrivacy über Tor den Standort von der Webseite ab, so dass er nicht zu Ihnen verfolgt werden kann. Wenn immer möglich, verwendet die Verbindung HTTPS.
+
+OsmAnd ist die empfohlene Karten-App für den datengeschützten Standort, da sie vollständig offline arbeitet und wir sie geprüft haben. LocationPrivacy funktioniert grundsätzlich mit allen Kartenanwendungen. LocationPrivacy kann auch als Möglichkeit dienen, alle Standortlinks an Ihre bevorzugte Mapping-App umzuleiten. Alle Map-Apps in Android können `geo:`URIs anzeigen, und LocationPrivacy konvertiert viele Arten von Links in `geo:`URIs, einschließlich: Google Maps, OpenStreetMap, Amap, Baidu Map, QQ Map, Nokia HERE, Yandex Maps.
+
+Dies ist immer noch eine Beta-Version einer neuen Idee, wenn Sie Probleme oder Ideen haben, posten Sie sie bitte in unserem Issue Tracker, damit wir diese App verbessern können!
+https://github.com/guardianproject/locationprivacy/issues
+
+★ WIR SPRECHEN IHRE SPRACHE: LocationPrivacy ist erhältlich in: Deutsch, español, français, norsk. Finden Sie ihre Sprache nicht? Kommen Sie zu uns und helfen Sie bei der Übersetzung der App:
+https://hosted.weblate.org/projects/guardianproject/locationprivacy
+https://hosted.weblate.org/projects/guardianproject/locationprivacy-metadata
+
+
+***Mehr erfahren***
+
+★ ÜBER UNS: Guardian Project ist eine Gruppe von Entwicklern, die sichere mobile Anwendungen und Open-Source-Code für eine bessere Zukunft entwickeln.
+★ UNSERE WEBSITE: https://GuardianProject.info
+★ AUF TWITTER: https://twitter.com/guardianproject
+★ FREIE SOFTWARE: LocationPrivacy ist freie Software. Sie können einen Blick auf unseren Quellcode werfen oder dazu beitragen, LocationPrivacy noch besser zu machen:
+https://github.com/guardianproject/LocationPrivacy
+★ UNS BENACHRICHTIGEN: Haben wir Ihr Lieblingsfeature vergessen? Haben Sie einen lästigen Fehler gefunden? Bitte sagen Sie es uns! Wir würden uns freuen, von Ihnen zu hören. Schicken Sie uns eine E-Mail: support@guardianproject.info oder besuchen Sie uns in unserem Chatroom https://guardianproject.info/contact

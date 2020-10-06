@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PosizionePrivacy</string>
+    <string name="give_feedback">Vogliamo il tuo feedback! Clicca qui per segnalare un problema: https://dev.guardianproject.info/projects/panic/issues</string>
+    <string name="force_https">Forza HTTPS</string>
+    <string name="send_location_to">Invia posizione a…</string>
+    <string name="view_in">visualizza in %1$s</string>
+    <string name="choose_trusted_map_app">Scegliere l\'app mappa attendibile</string>
+    <string name="recommended_app">OsmAnd è consigliato come un applicativo mappa privata che fornisce un\'operazione completa e offline. Ciò significa che non farà sucire le tue informazioni private dal tuo dispositivo. È anche Software Libero.</string>
+    <string name="install_osmand">Installa OsmAnd</string>
+    <string name="why_orbot">Orbot fornisce Tor, che rende anonimo il traffico di rete. LocationPrivacy diffonderà molte meno informazioni quando è in coppia con Orbot. È software libero.</string>
+    <string name="install_orbot">Installa Orbot</string>
+    <string name="blocked_url">LocationPrivacy ha bloccato questo URL!</string>
+</resources>

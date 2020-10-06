@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chooser">चयनकर्ता</string>
+    <string name="blocked">अवरोधित</string>
+    <string name="about">के बारे में…</string>
+    <string name="orbot_stopped">स्थान की तलाश को रद्द करते हुए Orbot को रोका गया!</string>
+    <string name="waiting_for_orbot">शुरू करने के लिए Orbot की प्रतीक्षा कर रहा है …</string>
+    <string name="no">नहीं</string>
+    <string name="yes">हाँ</string>
+    <string name="you_must_have_orbot">आपके पास इसके माध्यम से प्रॉक्सी ट्रैफ़िक के लिए Orbot इंस्टॉल और सक्रिय होना चाहिए। क्या आप इसे डाउनलोड करना चाहेंगे\?</string>
+    <string name="start_orbot_">Orbot शुरू करें\?</string>
+    <string name="no_geo_map_app">जियो को समझने वाला कोई इंस्टॉल मैप ऐप नहीं: लोकेशन URI!</string>
+    <string name="why_orbot">Orbot प्रदान करता है Tor, जो आपके नेटवर्क ट्रैफ़िक को अज्ञात करता है। जब यह Orbot के साथ मिलकर काम करता है, तो LocationPrivacy बहुत कम जानकारी लीक करेगा। यह फ्री सॉफ्टवेयर है।</string>
+    <string name="blocked_url">स्थान गोपनीयता ने इस URL को अवरोधित कर दिया है!</string>
+    <string name="install_orbot">Orobot इंस्टॉल करे</string>
+    <string name="install_osmand">OsmAnd इंस्टॉल करे</string>
+    <string name="recommended_app">OsmAnd को निजी मानचित्र ऐप के रूप में अनुशंसित किया जाता है जो पूर्ण, ऑफ़लाइन संचालन प्रदान करता है। इसका मतलब है कि यह आपकी निजी जानकारी को आपके डिवाइस से कुछ भी लीक नहीं करेगा। यह भी फ्री सॉफ्टवेयर है।</string>
+    <string name="choose_trusted_map_app">विश्वसनीय मैप ऐप चुनें</string>
+    <string name="ignoring_unparsable_url">अगोचर URL को अनदेखा करना, एक अलग ऐप आज़माएं!</string>
+    <string name="view_in">%1$s में देखें</string>
+    <string name="send_location_to">स्थान को भेजें…</string>
+    <string name="force_https">केवल https</string>
+    <string name="give_feedback">हम आपकी प्रतिक्रिया चाहते हैं! कोई समस्या दर्ज करने के लिए यहां क्लिक करें: https://dev.guardianproject.info/projects/panic/issues</string>
+    <string name="usage">इस एप्लिकेशन का उपयोग करने के लिए, एक स्थान लिंक पर क्लिक करें और स्थान गोपनीयता चुनें, या स्थान-गोपनीयता के लिए कुछ पाठ साझा करें। पहले स्थान गोपनीयता चुनें, यह जानकारी को संसाधित करेगा, फिर आपको उन ऐप्स की एक नई सूची के साथ फिर से संकेत देगा जो अधिक निजी स्थान URL को स्वीकार करते हैं। एक उदाहरण के लिए नीचे क्लिक करें:</string>
+    <string name="app_description">स्थान गोपनीयता वास्तव में ऐप नहीं है, बल्कि साझाकरण स्थान के सभी तरीकों के लिए इंटेंट फ़िल्टर्स का एक सेट है। जब आप एक ऐप से स्थान साझा करते हैं, तो स्थान गोपनीयता एक विकल्प के रूप में प्रदान करता है। यह स्थान साझा करने के असुरक्षित तरीकों को पहचानता है, और फिर उन्हें अधिक सुरक्षित तरीकों में परिवर्तित करता है। इसका ज्यादातर अर्थ यह है कि यह URLs का उपयोग करने के लिए URLs को फिर से लिखता है, और यहां तक कि `geo:` URIs का उपयोग करने के लिए, जो पूरी तरह से ऑफ़लाइन सेटअप पर काम कर सकता है। लोकेशन प्राइवेसी ज्यादातर URLs से ही लोकेशन की जानकारी पढ़कर काम करती है। कई URLs के लिए, स्थान प्राप्त करने के लिए, स्थान गोपनीयता वास्तव में कुछ वेबपृष्ठ को लोड करना होगा।</string>
+    <string name="app_name">स्थान गोपनीयता</string>
+</resources>
